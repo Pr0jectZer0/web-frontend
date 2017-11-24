@@ -2,3 +2,11 @@
 a:hover {
   cursor: pointer;
 }
+
+a:not([href]):not([tabindex]) {
+  color: #DC143C;
+}
+
+a:hover, a:not([href]):not([tabindex]):hover {
+  color: #9a0e2a;
+}

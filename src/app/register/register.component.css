@@ -30,4 +30,12 @@ button {
   margin-top: 10px;
 }
 
+.deny {
+  border: 1px solid #DC143C;
+}
 
+span {
+  color: #DC143C;
+  font-size: 14px;
+  margin-top: -5px;
+}
