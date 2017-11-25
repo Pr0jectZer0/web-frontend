@@ -1,33 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class RegisterComponent implements OnInit {
-  registerForm: FormGroup;
+export class SignupComponent implements OnInit {
+  signupForm: FormGroup;
   passwords: FormGroup;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.passwords = new FormGroup({
       'password': new FormControl('', [Validators.required, Validators.minLength(8)]),
       'repeat': new FormControl('', [Validators.required])
-    }, {validators: RegisterComponent.isPasswordMatching});
+    }, {validators: SignupComponent.isPasswordMatching});
 
-    this.registerForm = new FormGroup({
+    this.signupForm = new FormGroup({
       'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(16)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'passwords': this.passwords
     });
   }
 
-  onSubmit() {
-    console.log(this.registerForm);
-    this.registerForm.reset();
+  onSignup() {
+    const email = this.signupForm.get('email').value;
+    const password = this.signupForm.get('passwords.password').value;
+
+    console.log(password);
+
+    this.authService.signupUser(email, password);
   }
 
   static isPasswordMatching(control: FormGroup): {[s: string]: boolean} {

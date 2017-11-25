@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <h4 class="card-header">Registrierung</h4>
+        <div class="card-body">
+          <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+            <div class="form-group">
+              <label for="username">Benutzername</label>
+              <input [ngClass]="{ deny: !signupForm.get('username').valid && signupForm.get('username').touched }"
+                     type="text"
+                     class="form-control"
+                     id="username"
+                     name="username"
+                     placeholder="Benutzername"
+                     formControlName="username" ngModel>
+              <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
+                <span *ngIf="signupForm.get('username').errors['minlength']">Benutzername muss mindenstens 8 Zeichen lang sein!</span>
+                <span *ngIf="signupForm.get('username').errors['maxlength']">Benutzername darf maximal 16 Zeichen lang sein!</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail</label>
+              <input [ngClass]="{ deny: !signupForm.get('email').valid && signupForm.get('email').touched }"
+                     type="email"
+                     class="form-control"
+                     id="email"
+                     placeholder="E-Mail"
+                     name="email"
+                     formControlName="email" ngModel>
+              <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched">
+                Bitte geben Sie eine korrekte E-Mail an!
+              </span>
+            </div>
+            <div formGroupName="passwords">
+              <div class="form-group">
+                <label for="password">Passwort</label>
+                <input [ngClass]="{ deny: !signupForm.get('passwords.password').valid && signupForm.get('passwords.password').touched }"
+                       type="password"
+                       class="form-control"
+                       id="password"
+                       name="password"
+                       placeholder="Passwort"
+                       formControlName="password" ngModel>
+                <span *ngIf="!signupForm.get('passwords.password').valid && signupForm.get('passwords.password').touched">
+                  <span *ngIf="signupForm.get('passwords.password').errors['minlength']">Passwort muss mindenstens 8 Zeichen lang sein!</span>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="repeat">Passwort</label>
+                <input [ngClass]="{ deny: !signupForm.get('passwords').valid && signupForm.get('passwords.repeat').touched }"
+                       type="password"
+                       class="form-control"
+                       id="repeat"
+                       name="repeat"
+                       placeholder="Passwort"
+                       formControlName="repeat"
+                       ngModel>
+                <span *ngIf="(!signupForm.get('passwords').valid || !signupForm.get('passwords.repeat').valid) && signupForm.get('passwords.repeat').touched">
+                  <span *ngIf="signupForm.get('passwords').errors != null">Passwörter stimmen nicht überein!</span>
+                </span>
+              </div>
+            </div>
+            <div class="clearfix footer">
+              <div class="float-left">
+                <p>Bereits registriert?</p>
+                <a routerLink="/login">Anmelden</a>
+              </div>
+              <button type="submit" class="float-right btn btn-outline-danger" [disabled]="!signupForm.valid">Registrieren</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
