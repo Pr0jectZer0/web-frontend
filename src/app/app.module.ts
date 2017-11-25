@@ -5,15 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { RegisterComponent } from './register/register.component';
+import { SignupComponent } from './auth/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegisterComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
