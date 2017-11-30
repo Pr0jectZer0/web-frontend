@@ -4,6 +4,7 @@
       <div class="card">
         <h4 class="card-header">Registrierung</h4>
         <div class="card-body">
+          <div class="alert alert-danger" role="alert" *ngIf="this.error != null">{{ this.error }}</div>
           <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
             <div class="form-group">
               <label for="username">Benutzername</label>

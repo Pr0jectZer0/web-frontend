@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
+import {isEmailValid} from "../../shared/is-email-valid.directive";
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,7 @@ import { AuthService } from '../auth.service';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   passwords: FormGroup;
+  error: string;
 
   constructor(private authService: AuthService) { }
 
@@ -21,8 +23,12 @@ export class SignupComponent implements OnInit {
 
     this.signupForm = new FormGroup({
       'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
-      'email': new FormControl(null, [Validators.required, Validators.email, SignupComponent.isEmailValid.bind(this)]),
+      'email': new FormControl(null, [Validators.required, Validators.email, isEmailValid.bind(this)]),
       'passwords': this.passwords
+    });
+
+    this.authService.error.subscribe((err: string) => {
+      this.error = err;
     });
   }
 
@@ -35,14 +41,6 @@ export class SignupComponent implements OnInit {
 
     this.authService.signupUser(username, email, password);
   }
-
-  static isEmailValid(control: FormControl): {[s: string]: boolean} {
-    if (control.value != null && !control.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
-      return {'emailInvalid': true}
-    }
-
-    return null;
-}
 
   static isPasswordMatching(control: FormGroup): {[s: string]: boolean} {
     if(control == null) return null;

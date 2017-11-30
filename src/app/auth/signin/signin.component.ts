@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
+import {isEmailValid} from "../../shared/is-email-valid.directive";
 
 @Component({
   selector: 'app-signin',
@@ -8,10 +9,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  signinForm: FormGroup;
+  error: string;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.signinForm = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email, isEmailValid.bind(this)]),
+      'password': new FormControl(null, [Validators.required])
+    });
+
+    this.authService.error.subscribe((err: string) => {
+      this.error = err;
+    });
   }
 
   onSignin(form: NgForm) {
