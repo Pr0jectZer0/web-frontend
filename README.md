@@ -27,5 +27,8 @@ Scaffold  | Usage
 
 
 #### Autoren
+* [Stefan Kröker](https://github.com/kroeker97)
+* [Dejan Novakovic](https://github.com/FranNk3)
 * [Patrick Reinke](https://github.com/reinkepatrick)
 * [Marti Stuwe](https://github.com/martistuwe)
+* [Pascal Turon](https://github.com/pturon)
