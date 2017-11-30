@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, NgForm, ValidatorFn, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,12 +8,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  questions: String[] = [
-    "Name Ihres Haustieres?",
-    "Der Mädchenname Ihrer Mutter?",
-    "Name Ihrer Grundschule?",
-    "Name Ihres Lieblingsvereins?"
-  ];
   signupForm: FormGroup;
   passwords: FormGroup;
 
@@ -26,26 +20,25 @@ export class SignupComponent implements OnInit {
     }, {validators: SignupComponent.isPasswordMatching});
 
     this.signupForm = new FormGroup({
-      'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(16)]),
-      'email': new FormControl(null, [Validators.required, Validators.email, this.isEmailValid.bind(this)]),
+      'username': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
+      'email': new FormControl(null, [Validators.required, Validators.email, SignupComponent.isEmailValid.bind(this)]),
       'passwords': this.passwords
     });
   }
 
   onSignup() {
+    const username = this.signupForm.get('username').value;
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('passwords.password').value;
 
     console.log(password);
 
-    this.authService.signupUser(email, password);
+    this.authService.signupUser(username, email, password);
   }
 
-  isEmailValid(control: FormControl): {[s: string]: boolean} {
-    if(control.value != null) {
-      if (!control.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
-        return {'emailInvalid': true}
-      }
+  static isEmailValid(control: FormControl): {[s: string]: boolean} {
+    if (control.value != null && !control.value.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+      return {'emailInvalid': true}
     }
 
     return null;

@@ -1,44 +1,47 @@
-import * as firebase from 'firebase';
-import { error } from 'util';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { tokenNotExpired } from "angular2-jwt";
+import {Token} from "../shared/token.model";
 
+@Injectable()
 export class AuthService {
-  token: string;
+  constructor(private http: HttpClient) {}
 
-  signupUser(email: string, password: string) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(
-      error => console.log(error)
-    )
-  }
+  //test123
+  //t@t.de
+  //hallo1234
 
-  signinUser(email: string, password: string) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then (
-        response => {
-          firebase.auth().currentUser.getIdToken().then(
-            (token: string) => this.token = token
-          )
-        }
-      )
-      .catch(
-        error => console.log(error)
+  public signupUser(username: string, email: string, password: string) {
+    this.http.post("https://pr0jectzer0.ml/api/user", {'name': username, 'password': password, 'email': email})
+      .subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
     );
   }
 
-  signOut() {
-    firebase.auth().signOut();
-    this.token = null;
-  }
-
-  getToken() {
-    firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => this.token = token
+  public signinUser(email: string, password: string) {
+    this.http.post<Token>("https://pr0jectzer0.ml/api/user/login", {'email': email, 'password': password})
+      .subscribe(
+        data => {
+          localStorage.setItem('token', data.token);
+        }
       );
-
-    return this.token;
   }
 
-  isAuthenticated() {
-    return this.token != null;
+  public signOut() {
+    localStorage.removeItem('token');
+  }
+
+  public getToken() {
+    return localStorage.getItem('token');
+  }
+
+  public isAuthenticated() {
+    const token = this.getToken();
+    return tokenNotExpired(null, token);
   }
 }
