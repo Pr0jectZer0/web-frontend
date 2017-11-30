@@ -15,10 +15,7 @@ export class AuthService {
     this.http.post("https://pr0jectzer0.ml/api/user", {'name': username, 'password': password, 'email': email})
       .subscribe(
       data => {
-        console.log(data);
-      },
-      err => {
-        console.log(err);
+        this.signinUser(email, password);
       }
     );
   }
