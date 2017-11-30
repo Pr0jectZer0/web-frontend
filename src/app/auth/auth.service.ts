@@ -1,12 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { tokenNotExpired } from "angular2-jwt";
 import { Token } from "./token.model";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit {
+  error = new Subject<string>();
+
   constructor(private http: HttpClient) {}
 
+  ngOnInit() {
+    this.error = null;
+  }
   //test123
   //t@t.de
   //hallo1234
@@ -16,6 +22,8 @@ export class AuthService {
       .subscribe(
       data => {
         this.signinUser(email, password);
+      }, err => {
+        this.error.next(err.error.email);
       }
     );
   }
@@ -25,6 +33,9 @@ export class AuthService {
       .subscribe(
         data => {
           localStorage.setItem('token', data.token);
+        },
+        err => {
+          this.error.next(err.error.error);
         }
       );
   }
