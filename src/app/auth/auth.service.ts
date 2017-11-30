@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { tokenNotExpired } from "angular2-jwt";
-import {Token} from "../shared/token.model";
+import { Token } from "./token.model";
 
 @Injectable()
 export class AuthService {
