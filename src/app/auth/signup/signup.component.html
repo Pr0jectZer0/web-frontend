@@ -15,8 +15,8 @@
                      placeholder="Benutzername"
                      formControlName="username" ngModel>
               <span *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched">
-                <span *ngIf="signupForm.get('username').errors['minlength']">Benutzername muss mindenstens 8 Zeichen lang sein!</span>
-                <span *ngIf="signupForm.get('username').errors['maxlength']">Benutzername darf maximal 16 Zeichen lang sein!</span>
+                <span *ngIf="signupForm.get('username').errors['minlength']">Benutzername muss mindenstens 3 Zeichen lang sein!</span>
+                <span *ngIf="signupForm.get('username').errors['maxlength']">Benutzername darf maximal 30 Zeichen lang sein!</span>
               </span>
             </div>
             <div class="form-group">
