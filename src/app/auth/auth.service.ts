@@ -49,7 +49,6 @@ export class AuthService implements OnInit {
   }
 
   public isAuthenticated() {
-    const token = this.getToken();
-    return tokenNotExpired(null, token);
+    return tokenNotExpired(null, this.getToken());
   }
 }
