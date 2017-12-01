@@ -44,6 +44,6 @@ export class SignupComponent implements OnInit {
 
   static isPasswordMatching(control: FormGroup): {[s: string]: boolean} {
     if(control == null) return null;
-    return control.get('repeat').value == control.get('password').value ? null : {'notMatching': true};
+    return control.get('repeat').value === control.get('password').value ? null : {'notMatching': true};
   }
 }
