@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friendlist.component.css']
 })
 export class FriendlistComponent implements OnInit {
+  isSelected: boolean = false;
+  isFriendsSelected: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onClicked() {
+    this.isSelected = !this.isSelected;
+  }
+
+  onUpdateView() {
+    this.isFriendsSelected = !this.isFriendsSelected;
+  }
 }

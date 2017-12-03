@@ -1,3 +1,22 @@
-<p>
-  friendlist works!
-</p>
+<div [ngClass]="{height: isSelected}" class="friends clearfix">
+  <div class="float-right">
+    <div id="friend-header" (click)="onClicked()">
+      <div class="row">
+        <div class="col-6" (click)="onUpdateView()">Freunde</div>
+        <div class="col-6" (click)="onUpdateView()">Gruppen</div>
+      </div>
+    </div>
+    <div id="friend-body" *ngIf="isSelected">
+      <div id="friends" *ngIf="isFriendsSelected">
+        <p>Stefan</p>
+      </div>
+      <div id="groups" *ngIf="!isFriendsSelected">
+        <p>Kröker Group</p>
+        <p>Kröker Group</p>
+        <p>Kröker Group</p>
+        <p>Kröker Group</p>
+        <p>Kröker Group</p>
+      </div>
+    </div>
+  </div>
+</div>
