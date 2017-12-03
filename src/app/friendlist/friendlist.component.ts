@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DisableService} from '../shared/disable.service';
 
 @Component({
   selector: 'app-friendlist',
@@ -9,9 +10,16 @@ export class FriendlistComponent implements OnInit {
   isSelected: boolean = false;
   isFriendsSelected: boolean = true;
 
-  constructor() { }
+  constructor(private disableService: DisableService) { }
 
   ngOnInit() {
+    this.disableService.disable.subscribe(
+      data => {
+        if(data) {
+          this.isSelected = false;
+        }
+      }
+    );
   }
 
   onClicked() {

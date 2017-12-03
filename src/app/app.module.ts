@@ -11,6 +11,7 @@ import { AuthService } from './auth/auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { FriendlistComponent } from './friendlist/friendlist.component';
+import {DisableService} from './shared/disable.service';
 
 
 @NgModule({
@@ -29,7 +30,10 @@ import { FriendlistComponent } from './friendlist/friendlist.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    DisableService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
