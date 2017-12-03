@@ -1,16 +1,16 @@
-<div [ngClass]="{height: isSelected}" class="friends clearfix">
+<div [@bodyState]="state" class="friends clearfix">
   <div class="float-right">
     <div id="friend-header" (click)="onClicked()">
       <div class="row">
-        <div class="col-6" (click)="onUpdateView()">Freunde</div>
-        <div class="col-6" (click)="onUpdateView()">Gruppen</div>
+        <div class="col-6" (click)="onFriendsView()" [ngClass]="{noborder: isFriendsSelected}">Freunde</div>
+        <div class="col-6" (click)="onGroupsView()" [ngClass]="{ noborder: isGroupsSelected }">Gruppen</div>
       </div>
     </div>
-    <div id="friend-body" *ngIf="isSelected">
-      <div id="friends" *ngIf="isFriendsSelected">
+    <div id="friend-body">
+      <div [@body]="body" id="friends" *ngIf="isFriendsSelected">
         <p>Stefan</p>
       </div>
-      <div id="groups" *ngIf="!isFriendsSelected">
+      <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
         <p>Kröker Group</p>
         <p>Kröker Group</p>
         <p>Kröker Group</p>

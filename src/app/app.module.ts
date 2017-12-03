@@ -12,6 +12,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {DisableService} from './shared/disable.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
