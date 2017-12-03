@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { FriendlistComponent } from './friendlist/friendlist.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SigninComponent } from './auth/signin/signin.component';
     HeaderComponent,
     SignupComponent,
     ErrorPageComponent,
-    SigninComponent
+    SigninComponent,
+    FriendlistComponent
   ],
   imports: [
     BrowserModule,
