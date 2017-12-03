@@ -15,7 +15,8 @@ export class FriendlistComponent implements OnInit {
   }
 
   onClicked() {
-    this.isSelected = !this.isSelected;
+    if(this.isSelected != true)
+      this.isSelected = !this.isSelected;
   }
 
   onUpdateView() {
