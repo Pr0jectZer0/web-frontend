@@ -11,7 +11,7 @@ import {animate, group, state, style, transition, trigger} from '@angular/animat
       state('closed', style({height: '40px', backgroundColor: '#FFFFFF'})),
       state('opened', style({height: 'calc(100% - 58px)'})),
       transition('closed <=> opened', [
-        animate(500)
+        animate(250)
       ])
     ]),
     trigger('body', [
