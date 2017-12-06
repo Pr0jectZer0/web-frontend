@@ -40,11 +40,16 @@
   background-color: #FFFFFF;
   border-left: 1px solid rgba(0,0,0,.2);
   overflow: auto;
-  height: calc(100% - 40px);
+  height: calc(100% - 80px);
 }
 
 #friend-body p {
   margin: 0;
+}
+
+#friend-footer {
+  background-color: #FFFFFF;
+  border-left: 1px solid rgba(0,0,0,.2);
 }
 
 hr {
