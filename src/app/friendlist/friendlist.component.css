@@ -50,6 +50,15 @@
 #friend-footer {
   background-color: #FFFFFF;
   border-left: 1px solid rgba(0,0,0,.2);
+  line-height: 20px;
+}
+
+#friend-footer i {
+  font-size: 21px;
+}
+
+#friend-footer input {
+  width: 80%;
 }
 
 hr {
