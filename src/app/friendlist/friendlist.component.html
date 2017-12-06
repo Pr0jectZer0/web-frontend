@@ -9,7 +9,7 @@
     <div id="friend-body">
       <div [@body]="body" id="friends" *ngIf="isFriendsSelected">
         <div>
-          <div class="clearfix">
+          <div class="p-2 clearfix">
             <img class="float-left" src="../../assets/profile.png" height="50" width="50" />
             <div class="float-left">
               <p>Freund</p>
@@ -20,6 +20,9 @@
         </div>
       </div>
       <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
+      </div>
+      <div class="align-bottom d-inline">
+        <i class="fa fa-plus-square" aria-hidden="true"></i>
       </div>
     </div>
   </div>
