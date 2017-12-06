@@ -8,14 +8,18 @@
     </div>
     <div id="friend-body">
       <div [@body]="body" id="friends" *ngIf="isFriendsSelected">
-        <p>Stefan</p>
+        <div>
+          <div>
+            <img class="float-left" src="../../assets/profile.png" height="50" width="50" />
+            <div class="float-left">
+              <p>Freund</p>
+              <p>Status</p>
+            </div>
+          </div>
+          <hr/>
+        </div>
       </div>
       <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
-        <p>Kröker Group</p>
-        <p>Kröker Group</p>
-        <p>Kröker Group</p>
-        <p>Kröker Group</p>
-        <p>Kröker Group</p>
       </div>
     </div>
   </div>
