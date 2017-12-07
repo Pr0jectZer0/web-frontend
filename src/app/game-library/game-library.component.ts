@@ -9,11 +9,13 @@ import {HttpClient} from '@angular/common/http';
 })
 export class GameLibraryComponent implements OnInit {
 
+  games: Object[];
+
   constructor(private auth: AuthService, private http: HttpClient) {}
 
   ngOnInit() {
     this.http.get('https://pr0jectzer0.ml/api/user/game/list?token=' + this.auth.getToken()).subscribe( data =>{
-
+      this.games = data;
     }, error =>{
 
     );
