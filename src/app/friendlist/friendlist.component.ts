@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DisableService } from '../shared/disable.service';
 import {animate, group, state, style, transition, trigger} from '@angular/animations';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-friendlist',
@@ -29,7 +31,7 @@ export class FriendlistComponent implements OnInit {
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
 
-  constructor(private disableService: DisableService) { }
+  constructor(private disableService: DisableService, private http: HttpClient, private auth: AuthService) { }
 
   ngOnInit() {
     this.disableService.disable.subscribe(
@@ -39,6 +41,10 @@ export class FriendlistComponent implements OnInit {
         }
       }
     );
+
+    this.http.get('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken()).subscribe(data => {
+      console.log(data);
+    });
   }
 
   onClicked() {

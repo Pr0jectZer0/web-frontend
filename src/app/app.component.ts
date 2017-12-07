@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
 
   onDisable() {
     this.disableService.disable.next(true);
-    console.log("hallo")
   }
 
 }
