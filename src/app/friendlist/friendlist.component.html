@@ -8,11 +8,11 @@
     </div>
     <div id="friend-body">
       <div [@body]="body" id="friends" *ngIf="isFriendsSelected">
-        <div>
+        <div *ngFor="let friend of friends">
           <div class="p-2 clearfix">
             <img class="float-left" src="../../assets/profile.png" height="50" width="50" />
             <div class="float-left">
-              <p>Freund</p>
+              <p>{{ friend.name }}</p>
               <p>Status</p>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { DisableService } from '../shared/disable.service';
 import {animate, group, state, style, transition, trigger} from '@angular/animations';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../auth/auth.service';
+import {User} from '../shared/user.model';
 
 @Component({
   selector: 'app-friendlist',
@@ -26,6 +27,7 @@ import {AuthService} from '../auth/auth.service';
   ]
 })
 export class FriendlistComponent implements OnInit {
+  friends: User[];
   body: string = 'in';
   state: string = 'closed';
   isFriendsSelected: boolean = true;
@@ -42,8 +44,9 @@ export class FriendlistComponent implements OnInit {
       }
     );
 
-    this.http.get('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken()).subscribe(data => {
-      console.log(data);
+    this.http.get<User[]>('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken())
+      .subscribe(data => {
+        this.friends = data['friends'];
     });
   }
 
