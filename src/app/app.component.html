@@ -1,3 +1,5 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-
+<div (click)="onDisable()">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>
+<app-friendlist *ngIf="this.auth.isAuthenticated()"></app-friendlist>

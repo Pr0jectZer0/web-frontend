@@ -1,0 +1,34 @@
+<div [@bodyState]="state" class="friends clearfix">
+  <div class="float-right">
+    <div id="friend-header" (click)="onClicked()">
+      <div class="row">
+        <div class="col-6" (click)="onFriendsView()" [ngClass]="{noborder: isFriendsSelected}">Freunde</div>
+        <div class="col-6" (click)="onGroupsView()" [ngClass]="{ noborder: isGroupsSelected }">Gruppen</div>
+      </div>
+    </div>
+    <div id="friend-body">
+      <div [@body]="body" id="friends" *ngIf="isFriendsSelected">
+        <div *ngFor="let friend of friends">
+          <div class="p-2 clearfix">
+            <img class="float-left" src="../../assets/profile.png" height="50" width="50" />
+            <i class="fa fa-trash" aria-hidden="true" (click)="deleteFriend(friend.id)"></i>
+            <div class="float-left">
+              <p>{{ friend.name }}</p>
+              <p>STATUS UNDEFINED</p>
+            </div>
+          </div>
+          <hr/>
+        </div>
+      </div>
+      <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
+      </div>
+    </div>
+    <hr/>
+    <div id="friend-footer" class="p-2">
+      <div>
+        <i class="d-inline fa fa-user-plus" aria-hidden="true" (click)="addFriend()"></i>
+        <input [ngClass]="{deny: error !== 'Freund hinzufügen'}" class="d-inline form-control" type="text" [placeholder]="error" (input)="username = $event" (keyup.enter)="addFriend()" />
+      </div>
+    </div>
+  </div>
+</div>

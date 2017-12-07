@@ -10,6 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { FriendlistComponent } from './friendlist/friendlist.component';
+import {DisableService} from './shared/disable.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from './auth/auth-guard.service';
 
 
 @NgModule({
@@ -18,16 +22,22 @@ import { SigninComponent } from './auth/signin/signin.component';
     HeaderComponent,
     SignupComponent,
     ErrorPageComponent,
-    SigninComponent
+    SigninComponent,
+    FriendlistComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuard,
+    DisableService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

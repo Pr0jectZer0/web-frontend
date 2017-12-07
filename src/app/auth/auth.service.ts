@@ -3,12 +3,13 @@ import { Injectable, OnInit } from "@angular/core";
 import { tokenNotExpired } from "angular2-jwt";
 import { Token } from "./token.model";
 import { Subject } from "rxjs/Subject";
+import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService implements OnInit {
   error = new Subject<string>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.error = null;
@@ -33,6 +34,7 @@ export class AuthService implements OnInit {
       .subscribe(
         data => {
           localStorage.setItem('token', data.token);
+          this.router.navigate(['/']);
         },
         err => {
           this.error.next(err.error.error);
