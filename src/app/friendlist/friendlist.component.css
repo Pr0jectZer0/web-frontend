@@ -47,8 +47,11 @@
   white-space: nowrap;
   overflow:hidden !important;
   text-overflow: ellipsis;
-  max-width: 132px;
   margin: -7px 0 0;
+}
+
+#friend-body div.float-left {
+  max-width: 70%;
 }
 
 #friend-body i {
