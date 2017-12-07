@@ -4,13 +4,15 @@
       <div class="card">
         <h4 class="card-header">Meine Spiele</h4>
         <div class="card-body">
-
+          <div *ngFor="let game of games">
+            <p>{{game.name}}</p>
+          </div>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card" id="game-header">
-        <h3>Titel</h3>
+        <h3>{{games[0].name}}</h3>
         <hr>
         <div class="row" id="friends">
           <h5>
@@ -26,9 +28,17 @@
         </div>
         <hr>
         <div class="row" id="game-discription">
-          <h5>
-            Beschreibung
-          </h5>
+          <div class="row">
+            <h5>
+              Beschreibung:<br>
+            </h5>
+          </div>
+          <div class="row">
+            <p>{{games[0].beschreibung}}</p><br>
+          </div>
+          <div class="row">
+            Erstellt am:{{games[0].created_at}}
+          </div>
         </div>
         <hr>
         <div class="row" id="ratings-container">
