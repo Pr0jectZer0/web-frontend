@@ -40,11 +40,22 @@
   background-color: #FFFFFF;
   border-left: 1px solid rgba(0,0,0,.2);
   overflow: auto;
-  height: calc(100% - 80px);
+  height: calc(100% - 89px);
 }
 
 #friend-body p {
-  margin: 0;
+  white-space: nowrap;
+  overflow:hidden !important;
+  text-overflow: ellipsis;
+  max-width: 132px;
+  margin: -7px 0 0;
+}
+
+#friend-body i {
+  position: relative;
+  z-index: 10;
+  float: right;
+  cursor: pointer;
 }
 
 #friend-footer {
@@ -55,12 +66,19 @@
 
 #friend-footer i {
   font-size: 21px;
+  cursor: pointer;
 }
 
 #friend-footer input {
-  width: 80%;
+  padding: 2px 2px 2px 5px;
+  border-radius: 0;
+  width: 84%;
 }
 
 hr {
   margin: 0;
+}
+
+.deny {
+  border-color: #DC143C;
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DisableService } from '../shared/disable.service';
-import {animate, group, state, style, transition, trigger} from '@angular/animations';
-import {HttpClient} from '@angular/common/http';
-import {AuthService} from '../auth/auth.service';
-import {User} from '../shared/user.model';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-friendlist',
@@ -27,9 +27,16 @@ import {User} from '../shared/user.model';
   ]
 })
 export class FriendlistComponent implements OnInit {
+
+  set username(event: Event) {
+    this._username = (<HTMLInputElement>event.target).value;
+  }
+
   friends: User[];
+  private _username: string = "";
   body: string = 'in';
   state: string = 'closed';
+  error: string = 'Freund hinzufügen';
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
 
@@ -44,10 +51,7 @@ export class FriendlistComponent implements OnInit {
       }
     );
 
-    this.http.get<User[]>('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken())
-      .subscribe(data => {
-        this.friends = data['friends'];
-    });
+    this.updateFriends();
   }
 
   onClicked() {
@@ -56,11 +60,38 @@ export class FriendlistComponent implements OnInit {
     }
   }
 
+  addFriend() {
+    this.http.post('https://pr0jectzer0.ml/api/friend/add?token=' + this.auth.getToken(), {'id': this._username})
+      .subscribe(
+        () => {
+          this.updateFriends();
+        }, () => {
+          this.error = "Freund bereits vorhanden";
+        }
+    );
+  }
+
+  deleteFriend(id: number) {
+    this.http.delete('https://pr0jectzer0.ml/api/friend/remove/'+ id +'?token=' + this.auth.getToken()).subscribe(
+      () => {
+        this.updateFriends();
+      }
+    );
+  }
+
   onFriendsView() {
     if(!this.isFriendsSelected) {
       this.isGroupsSelected = false;
       this.isFriendsSelected = true;
     }
+  }
+
+  updateFriends() {
+    this.http.get<User[]>('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken())
+      .subscribe(data => {
+        this.friends = data['friends'];
+      });
+    this.error = "Freund hinzufügen";
   }
 
   onGroupsView() {
