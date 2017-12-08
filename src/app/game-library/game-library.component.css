@@ -43,6 +43,10 @@
   padding-left: 20px;
 }
 
+#friends h5{
+  font-size: 12pt;
+}
+
 .game-entry{
   list-style-type: none;
 }
