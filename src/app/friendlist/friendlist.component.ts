@@ -14,7 +14,7 @@ import { User } from '../shared/user.model';
       state('closed', style({height: '40px', backgroundColor: '#FFFFFF'})),
       state('opened', style({height: 'calc(100% - 58px)'})),
       transition('closed <=> opened', [
-        animate(250)
+        animate(350)
       ])
     ]),
     trigger('body', [
