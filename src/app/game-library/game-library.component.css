@@ -31,7 +31,7 @@
   padding-left: 20px;
 }
 
-.nav-item {
+#details .nav-item {
   padding: 10px;
 }
 
@@ -55,32 +55,25 @@
   align-content: center;
 }
 
-.card .friend-online {
-  border: 2px solid #01DF01;
-  height: 50px;
-  width: 50px;
+#game-friends .nav-item{
   margin: 0px 2px 0px 2px;
+  border-radius: 5px;
 }
 
-.card .friend-ingame {
-  border: 2px solid #0000FF;
-  height: 50px;
-  width: 50px;
-  margin: 0px 2px 0px 2px;
+.friend-online {
+  border: 3px solid #01DF01;
 }
 
-.card .friend-away {
-  border: 2px solid #FFFF00;
-  height: 50px;
-  width: 50px;
-  margin: 0px 2px 0px 2px;
+.friend-ingame {
+  border: 3px solid #0000FF;
 }
 
-.card .friend-offline {
-  border: 2px solid #FF0000;
-  height: 50px;
-  width: 50px;
-  margin: 0px 2px 0px 2px;
+.friend-away {
+  border: 3px solid #FFFF00;
+}
+
+.friend-offline {
+  border: 3px solid #FF0000;
 }
 
 
