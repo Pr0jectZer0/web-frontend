@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <div class="card">
+        <h4 class="card-header">Meine Spiele</h4>
+        <div class="card-body">
+          <div *ngFor="let game of games">
+            <p>{{game.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" id="game-header">
+        <h3>{{games[0].name}}</h3>
+        <hr>
+        <div class="row" id="friends">
+          <h5>
+            Freunde
+          </h5>
+          <div class="row">
+            <div class="col">
+              <div class="card friend-online">
+                <img src="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row" id="discription-header">
+          <h5>
+            Beschreibung:<br>
+          </h5>
+        </div>
+        <div class="row" id="game-discription">
+          <p>{{games[0].beschreibung}}</p>
+        </div>
+        <hr>
+        <div clas="row" id="details">
+          <ul class="nav" id="detail-list">
+            <li class="nav-item">Erstellt am: {{games[0].created_at}}</li>
+            <li class="nav-item">Letztes Update: {{games[0].updated_at}}</li>
+            <li class="nav-item">Genre: {{genres[(games[0].id_genre)-1]}}</li>
+            <li class="nav-item">Publisher: {{publishers[(games[0].id_publisher)-1]}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

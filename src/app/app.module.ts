@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth/auth.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
+import { GameLibraryComponent } from './game-library/game-library.component';
 import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,7 +24,8 @@ import {AuthGuard} from './auth/auth-guard.service';
     SignupComponent,
     ErrorPageComponent,
     SigninComponent,
-    FriendlistComponent
+    GameLibraryComponent,
+    FriendlistComponent,
   ],
   imports: [
     BrowserModule,

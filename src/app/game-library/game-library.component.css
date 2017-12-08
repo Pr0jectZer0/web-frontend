@@ -1,0 +1,45 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+  text-align: center;
+}
+
+.card .card-body {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+#game-header{
+  padding: 20px 20px 20px 50px;
+}
+
+#game-discription{
+  padding-left: 30px;
+}
+
+#discription-header{
+  padding-left: 20px;
+}
+
+.nav-item{
+  padding:10px;
+}
+
+.nav{
+  font-size: 10pt;
+}
+
+#friends{
+  padding-left: 20px;
+}
+
