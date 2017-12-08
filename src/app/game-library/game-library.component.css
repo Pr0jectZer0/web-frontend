@@ -76,4 +76,10 @@
   border: 3px solid #FF0000;
 }
 
+#game-list{
+  min-height: 100%;
+}
 
+#game-content{
+  min-height: 100%;
+}
