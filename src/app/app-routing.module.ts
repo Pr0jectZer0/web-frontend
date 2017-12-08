@@ -9,7 +9,7 @@ import {AuthGuard} from './auth/auth-guard.service';
 import {GameLibraryComponent} from './game-library/game-library.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/game-library', pathMatch: 'full' },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'game-library', component: GameLibraryComponent, canActivate: [AuthGuard] },
