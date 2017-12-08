@@ -4,9 +4,11 @@
       <div class="card">
         <h4 class="card-header">Meine Spiele</h4>
         <div class="card-body">
-          <div *ngFor="let game of games">
-            <p>{{game.name}}</p>
-          </div>
+          <ul>
+            <div *ngFor="let game of games">
+              <li class="game-entry">{{game.name}}</li>
+            </div>
+          </ul>
         </div>
       </div>
     </div>
