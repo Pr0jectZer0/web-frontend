@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-game-start',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService, private http: HttpClient) {
+  }
 
   ngOnInit() {
   }
-
 }
+

@@ -1,72 +1,12 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-3">
-      <div class="card" id="game-list">
-        <h4 class="card-header">Meine Spiele</h4>
-        <div class="card-body">
-          <ul>
-            <div *ngFor="let game of games">
-              <li class="game-entry">{{game.name}}</li>
-            </div>
-          </ul>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-3">
+      <app-game-list></app-game-list>
     </div>
-    <div class="col" id="game-content">
-      <div class="card" id="game-header">
-        <h3>TestSpiel01</h3>
-        <hr>
-        <div class="row" id="friends">
-          <h5>
-            Freunde, die das Spiel besitzen:
-          </h5>
-        </div>
-        <div class="row">
-          <div class="col" id="game-friends">
-            <ul class="nav">
-              <li class="card friend-online nav-item">
-                <img src="../../assets/profile.png" height="50" width="50">
-              </li>
-              <li class="card friend-ingame nav-item">
-                <img src="../../assets/profile.png" height="50" width="50">
-              </li>
-              <li class="card friend-away nav-item">
-                <img src="../../assets/profile.png" height="50" width="50">
-              </li>
-              <li class="card friend-offline nav-item">
-                <img src="../../assets/profile.png" height="50" width="50">
-              </li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-        <div class="row" id="discription-header">
-          <h5>
-            Beschreibung:<br>
-          </h5>
-        </div>
-        <div class="row" id="game-discription">
-          <p>Description TestSpiel01</p>
-        </div>
-        <hr>
-        <div class="row" id="details">
-          <ul class="nav" id="detail-list">
-            <li class="nav-item">Erstellt am: 2017-12-07 19:01:52</li>
-            <li class="nav-item">Letztes Update: 2017-12-07 19:01:52</li>
-            <li class="nav-item">Genre: Actionspiel</li>
-            <li class="nav-item">Publisher: Pr0ject Zer0</li>
-          </ul>
-        </div>
-        <hr>
-        <div class="row" id="rewiews">
-          <div class="col review">
-            <div class="row review-header">
-              <p class="review-title">Titel</p><p class="review-author">von G&uuml;nther</p>
-            </div>
-          </div>
-        </div>
+    <div class="col">
+      <div class="card" id="game-content">
+
       </div>
     </div>
   </div>
 </div>
-
