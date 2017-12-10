@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Game} from "../../shared/game.module";
 
 @Component({
   selector: 'app-game-detail',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-detail.component.css']
 })
 export class GameDetailComponent implements OnInit {
+
+  game: Game
+  id: number
 
   constructor() { }
 
