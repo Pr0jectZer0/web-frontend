@@ -20,6 +20,7 @@ import {GameStartComponent} from "./game-library/game-start/game-start.component
 import {GameListComponent} from "./game-library/game-list/game-list.component";
 import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
 import {GameItemComponent} from "./game-library/game-list/game-item/game-item.component";
+import {LibraryService} from "./game-library/library.service";
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import {GameItemComponent} from "./game-library/game-list/game-item/game-item.co
   providers: [
     AuthService,
     AuthGuard,
-    DisableService
+    DisableService,
+    LibraryService
   ],
   bootstrap: [AppComponent]
 })

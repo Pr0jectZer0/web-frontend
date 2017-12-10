@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Publisher} from "../../shared/publisher.model";
-import {Genre} from "../../shared/genre.module";
 import {Game} from "../../shared/game.module";
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../../auth/auth.service";
+import {LibraryService} from "../library.service";
 
 @Component({
   selector: 'app-game-list',
@@ -13,22 +12,12 @@ import {AuthService} from "../../auth/auth.service";
 export class GameListComponent implements OnInit {
 
   games: Game[];
-  genres: Genre[];
-  publishers: Publisher[];
 
-  constructor(private auth: AuthService, private http: HttpClient) {
+  constructor(private auth: AuthService, private http: HttpClient, private libraryService: LibraryService) {
   }
 
   ngOnInit() {
-    this.http.get('https://pr0jectzer0.ml/api/user/game/list?token=' + this.auth.getToken()).subscribe(data => {
-      this.games = data['games'];
-    });
-    this.http.get('https://pr0jectzer0.ml/api/genre').subscribe(data => {
-      this.genres = data['genres'];
-    });
-    this.http.get('https://pr0jectzer0.ml/api/publisher').subscribe(data => {
-      this.publishers = data['publishers'];
-    });
+    this.games = this.libraryService.getGames();
   }
 
 }
