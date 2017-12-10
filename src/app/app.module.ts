@@ -15,6 +15,9 @@ import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
+import { GameStartComponent } from './game-start/game-start.component';
+import { GameListComponent } from './game-list/game-list.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import {AuthGuard} from './auth/auth-guard.service';
     SigninComponent,
     GameLibraryComponent,
     FriendlistComponent,
+    GameStartComponent,
+    GameListComponent,
+    GameDetailComponent,
   ],
   imports: [
     BrowserModule,
