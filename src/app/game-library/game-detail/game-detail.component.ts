@@ -6,6 +6,7 @@ import {AuthService} from "../../auth/auth.service";
 import {Genre} from "../../shared/genre.module";
 import {Publisher} from "../../shared/publisher.model";
 import {LibraryService} from "../library.service";
+import {Subject} from "rxjs/Subject";
 
 
 @Component({
@@ -16,9 +17,10 @@ import {LibraryService} from "../library.service";
 export class GameDetailComponent implements OnInit {
 
   id: number;
+  games: Game[];
   game: Game;
-  genre: Genre;
-  publisher: Publisher;
+  genres: Genre[];
+  publishers: Publisher[];
 
 
   constructor(private route: ActivatedRoute, private libraryService: LibraryService) {
@@ -31,6 +33,14 @@ export class GameDetailComponent implements OnInit {
           this.id = +params['id'];
         }
       );
+    this.libraryService.getGames().subscribe(data => {
+      this.games = data;
+    });
+    this.libraryService.getGenres().subscribe(data => {
+      this.genres = data;
+    });
+    this.libraryService.getPublisher().subscribe(data => {
+      this.publishers = data;
+    });
   }
-
 }
