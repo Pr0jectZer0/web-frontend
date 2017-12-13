@@ -1,4 +1,4 @@
-# Project Zero Web-Frontend
+# Project Zero Web-Frontend [![Build Status](https://travis-ci.org/reinkepatrick/web-frontend.svg?branch=master)](https://travis-ci.org/reinkepatrick/web-frontend)
 
 #### Voraussetzungen
 Installieren Sie [Node.js und npm](https://nodejs.org/en/download/)
