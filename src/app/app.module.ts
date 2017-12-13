@@ -17,6 +17,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
 import {HttpModule} from '@angular/http';
 import {UsersService} from './shared/users.service';
+import { ChatsComponent } from './chats/chats.component';
+import { ChatComponent } from './chats/chat/chat.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import {UsersService} from './shared/users.service';
     SigninComponent,
     GameLibraryComponent,
     FriendlistComponent,
+    ChatsComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
