@@ -12,8 +12,10 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'game-library', component: GameLibraryComponent, canActivate: [AuthGuard] },
-  { path: 'not-found', component: ErrorPageComponent },
+  { path: 'library', component: GameLibraryComponent, children: [
+      { path: ':id', component: GameDetailComponent },
+    ]},
+  { path: 'not-found', component: ErrorPageComponent, },
   { path: '**', redirectTo: '/not-found'}
 ];
 
