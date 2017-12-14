@@ -6,6 +6,7 @@ import {AuthService} from "../../auth/auth.service";
 import {Genre} from "../../shared/genre.module";
 import {Publisher} from "../../shared/publisher.model";
 import {LibraryService} from "../library.service";
+import {Subject} from "rxjs/Subject";
 
 
 @Component({
@@ -16,9 +17,9 @@ import {LibraryService} from "../library.service";
 export class GameDetailComponent implements OnInit {
 
   id: number;
-  game: Game;
-  genre: Genre;
-  publisher: Publisher;
+  game: Game = new Game(0, "", "", 0, 0, "", "");
+  publisher: Publisher = new Publisher(0, "", "", "");
+  genre: Genre = new Genre(0, "", "", "");
 
 
   constructor(private route: ActivatedRoute, private libraryService: LibraryService) {
@@ -28,9 +29,29 @@ export class GameDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
+          this.libraryService.getGame(this.id).subscribe(
+            game => {
+              this.game = game['game'];
+              this.libraryService.getGenres().subscribe(genres => {
+                for(let genre of genres['Genre']) {
+                  if(this.game.id_genre == genre.id) {
+                    this.genre = genre;
+                    break;
+                  }
+                }
+              });
+              this.libraryService.getPublisher().subscribe(publishers => {
+                for(let publisher of publishers['publisher']) {
+                  if(this.game.id_publisher == publisher.id) {
+                    this.publisher = publisher;
+                    break;
+                  }
+                }
+              });
+            }
+          );
         }
       );
   }
-
 }

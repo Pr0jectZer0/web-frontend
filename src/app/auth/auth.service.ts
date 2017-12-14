@@ -38,7 +38,7 @@ export class AuthService implements OnInit {
       .subscribe(
         data => {
           localStorage.setItem('token', data.token);
-          this.router.navigate(['/game-library']);
+          this.router.navigate(['/library']);
         },
         err => {
           this.error.next(err.error.error);
