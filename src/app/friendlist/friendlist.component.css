@@ -1,4 +1,4 @@
-.row {
+row {
   margin: 0;
   padding: 0;
 }
@@ -84,4 +84,23 @@ hr {
 
 .deny {
   border-color: #DC143C;
+}
+
+.pos {
+  background-color: #FFFFFF;
+  position: absolute;
+  bottom: 43px;
+  left: 0px;
+  width: 200px;
+  border-top: 1px solid rgba(0,0,0,.2);
+  border-left: 1px solid rgba(0,0,0,.2);
+}
+
+.pos div {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.pos div:hover {
+  background-color: #DC143C;
 }

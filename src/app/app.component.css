@@ -1,5 +1,7 @@
 app-friendlist {
   width: 200px;
+  position: relative;
+  z-index: 900;
 }
 
 div {

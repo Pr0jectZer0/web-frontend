@@ -4,6 +4,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/user.model';
+import {UsersService} from '../shared/users.service';
 
 @Component({
   selector: 'app-friendlist',
@@ -14,7 +15,7 @@ import { User } from '../shared/user.model';
       state('closed', style({height: '40px', backgroundColor: '#FFFFFF'})),
       state('opened', style({height: 'calc(100% - 58px)'})),
       transition('closed <=> opened', [
-        animate(250)
+        animate(350)
       ])
     ]),
     trigger('body', [
@@ -28,19 +29,32 @@ import { User } from '../shared/user.model';
 })
 export class FriendlistComponent implements OnInit {
 
-  set username(event: Event) {
-    this._username = (<HTMLInputElement>event.target).value;
+  set userid(event: Event) {
+    this.foundedUsers = [];
+
+    if((<HTMLInputElement>event.target).value.length >= 3) {
+      for (let user of this.users) {
+        if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
+          this.friends.indexOf(user) < 0 &&
+          this.foundedUsers.length <= 8) {
+          this.foundedUsers.push(user);
+        }
+      }
+    }
   }
 
+  foundedUsers: User[] = [];
   friends: User[];
-  private _username: string = "";
+  _userid: string = "";
+  username: string = "";
   body: string = 'in';
   state: string = 'closed';
   error: string = 'Freund hinzufügen';
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
+  users: User[];
 
-  constructor(private disableService: DisableService, private http: HttpClient, private auth: AuthService) { }
+  constructor(private disableService: DisableService, private http: HttpClient, private auth: AuthService, private usersService: UsersService) { }
 
   ngOnInit() {
     this.disableService.disable.subscribe(
@@ -50,6 +64,10 @@ export class FriendlistComponent implements OnInit {
         }
       }
     );
+
+    this.usersService.getAllUsers().subscribe(data => {
+      this.users = data;
+    });
 
     this.updateFriends();
   }
@@ -61,7 +79,7 @@ export class FriendlistComponent implements OnInit {
   }
 
   addFriend() {
-    this.http.post('https://pr0jectzer0.ml/api/friend/add?token=' + this.auth.getToken(), {'id': this._username})
+    this.http.post('https://pr0jectzer0.ml/api/friend/add?token=' + this.auth.getToken(), {'id': this._userid})
       .subscribe(
         () => {
           this.updateFriends();
