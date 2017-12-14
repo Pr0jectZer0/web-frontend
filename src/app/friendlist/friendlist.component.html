@@ -23,7 +23,7 @@
       <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
       </div>
     </div>
-    <div class="pos" *ngIf="foundedUsers.length != 0">
+    <div class="pos" *ngIf="foundedUsers.length != 0 && state == 'opened'">
       <div *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name">
         {{ user.name }}
       </div>

@@ -37,7 +37,8 @@ export class FriendlistComponent implements OnInit {
         if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
           this.friends.indexOf(user) < 0 &&
           this.foundedUsers.length <= 8 &&
-          user.id != this.auth.getID()) {
+          user.id != this.auth.getID() &&
+          !this.weAreFriends(user)) {
           this.foundedUsers.push(user);
         }
       }
@@ -48,7 +49,7 @@ export class FriendlistComponent implements OnInit {
 
   foundedUsers: User[] = [];
   friends: User[];
-  _userid: string = "";
+  _userid: number;
   username: string = "";
   body: string = 'in';
   state: string = 'closed';
@@ -120,5 +121,15 @@ export class FriendlistComponent implements OnInit {
       this.isFriendsSelected = false;
       this.isGroupsSelected = true;
     }
+  }
+
+  weAreFriends(user: User):boolean {
+    for(let friend of this.friends) {
+      if(friend.id == user.id) {
+        return true;
+      }
+    }
+
+    return false;
   }
 }
