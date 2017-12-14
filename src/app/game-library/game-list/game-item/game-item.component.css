@@ -1,0 +1,14 @@
+.list-group-item:hover {
+  background-color: #DC143C;
+  border-color: #dddddd;
+}
+.list-group-item{
+  width: 100%;
+  margin: 10px;
+  background-color: #F7F7F7;
+  border-color: #DC143C;
+}
+.list-group-item-heading {
+  color: #000000;
+}
+

@@ -1,0 +1,85 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+  text-align: center;
+}
+
+.card .card-body {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+#game-header {
+  padding: 40px 20px 20px 50px;
+}
+
+#game-discription {
+  padding-left: 30px;
+}
+
+#discription-header {
+  padding-left: 20px;
+}
+
+#details .nav-item {
+  padding: 10px;
+}
+
+.nav {
+  font-size: 10pt;
+}
+
+#friends {
+  padding-left: 20px;
+}
+
+#friends h5 {
+  font-size: 12pt;
+}
+
+.game-entry {
+  list-style-type: none;
+}
+
+#details {
+  align-content: center;
+}
+
+#game-friends .nav-item{
+  margin: 0px 2px 0px 2px;
+  border-radius: 5px;
+}
+
+.friend-online {
+  border: 3px solid #01DF01;
+}
+
+.friend-ingame {
+  border: 3px solid #0000FF;
+}
+
+.friend-away {
+  border: 3px solid #FFFF00;
+}
+
+.friend-offline {
+  border: 3px solid #FF0000;
+}
+
+#game-list{
+  min-height: 100%;
+}
+
+#game-content{
+  min-height: 100%;
+}

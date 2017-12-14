@@ -15,8 +15,10 @@ import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
-import {HttpModule} from '@angular/http';
 import {UsersService} from './shared/users.service';
+import {GameItemComponent} from './game-library/game-list/game-item/game-item.component';
+import {GameDetailComponent} from './game-library/game-detail/game-detail.component';
+import {GameListComponent} from './game-library/game-list/game-list.component';
 import { ChatsComponent } from './chats/chats.component';
 import { ChatComponent } from './chats/chat/chat.component';
 
@@ -30,6 +32,9 @@ import { ChatComponent } from './chats/chat/chat.component';
     SigninComponent,
     GameLibraryComponent,
     FriendlistComponent,
+    GameListComponent,
+    GameDetailComponent,
+    GameItemComponent,
     ChatsComponent,
     ChatComponent,
   ],
