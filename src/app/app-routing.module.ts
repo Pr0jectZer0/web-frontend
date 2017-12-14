@@ -7,6 +7,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {GameLibraryComponent} from './game-library/game-library.component';
+import {GameDetailComponent} from './game-library/game-detail/game-detail.component';
+import {ChatsComponent} from './chats/chats.component';
+import {ChatComponent} from './chats/chat/chat.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -15,8 +18,6 @@ const appRoutes: Routes = [
   { path: 'library', component: GameLibraryComponent, children: [
       { path: ':id', component: GameDetailComponent },
     ]},
-  { path: 'not-found', component: ErrorPageComponent, },
-  { path: 'game-library', component: GameLibraryComponent, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
   { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: ErrorPageComponent },
