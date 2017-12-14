@@ -14,7 +14,7 @@
             <i class="fa fa-trash" aria-hidden="true" (click)="deleteFriend(friend.id)"></i>
             <div class="float-left">
               <p>{{ friend.name }}</p>
-              <p>STATUS UNDEFINED</p>
+              <p>Status undefined</p>
             </div>
           </div>
           <hr/>
@@ -23,11 +23,16 @@
       <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
       </div>
     </div>
+    <div class="pos" *ngIf="foundedUsers.length != 0 && state == 'opened'">
+      <div *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name">
+        {{ user.name }}
+      </div>
+    </div>
     <hr/>
     <div id="friend-footer" class="p-2">
       <div>
         <i class="d-inline fa fa-user-plus" aria-hidden="true" (click)="addFriend()"></i>
-        <input [ngClass]="{deny: error !== 'Freund hinzufügen'}" class="d-inline form-control" type="text" [placeholder]="error" (input)="username = $event" (keyup.enter)="addFriend()" />
+        <input [ngClass]="{deny: error !== 'Freund hinzufügen'}" class="d-inline form-control" type="text" [placeholder]="error" (input)="userid = $event" [value]="username" (keyup.enter)="addFriend()" />
       </div>
     </div>
   </div>

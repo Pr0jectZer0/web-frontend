@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable, OnInit } from "@angular/core";
-import { tokenNotExpired } from "angular2-jwt";
+import { tokenNotExpired, JwtHelper } from "angular2-jwt";
 import { Token } from "./token.model";
 import { Subject } from "rxjs/Subject";
 import {Router} from '@angular/router';
@@ -8,8 +8,11 @@ import {Router} from '@angular/router';
 @Injectable()
 export class AuthService implements OnInit {
   error = new Subject<string>();
+  jwt: JwtHelper;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    this.jwt = new JwtHelper();
+  }
 
   ngOnInit() {
     this.error = null;
@@ -19,7 +22,8 @@ export class AuthService implements OnInit {
   //hallo1234
 
   public signupUser(username: string, email: string, password: string) {
-    this.http.post("https://pr0jectzer0.ml/api/user", {'name': username, 'password': password, 'email': email})
+    this.http.post("https://pr0jectzer0.ml/api/user",
+      {'name': username, 'password': password, 'email': email})
       .subscribe(
       data => {
         this.signinUser(email, password);
@@ -48,6 +52,10 @@ export class AuthService implements OnInit {
 
   public getToken() {
     return localStorage.getItem('token');
+  }
+
+  public getID() {
+    return this.jwt.decodeToken(this.getToken()).sub;
   }
 
   public isAuthenticated() {
