@@ -9,7 +9,6 @@ import {Game} from "../../../shared/game.module";
 export class GameItemComponent implements OnInit {
 
   @Input() game: Game;
-  @Input() index: number;
 
   constructor() { }
 

@@ -1,4 +1,3 @@
-///<reference path="game-library/game-start/game-start.component.ts"/>
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +15,6 @@ import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
-import {GameStartComponent} from "./game-library/game-start/game-start.component";
 import {GameListComponent} from "./game-library/game-list/game-list.component";
 import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
 import {GameItemComponent} from "./game-library/game-list/game-item/game-item.component";
@@ -32,7 +30,6 @@ import {LibraryService} from "./game-library/library.service";
     SigninComponent,
     GameLibraryComponent,
     FriendlistComponent,
-    GameStartComponent,
     GameListComponent,
     GameDetailComponent,
     GameItemComponent,

@@ -2,10 +2,8 @@
   <h4 class="card-header">Meine Spiele</h4>
   <div class="card-body">
     <ul>
-      <app-game-item
-        *ngFor="let game of games;let i = index"
-        [game]="game"
-        [index]="i"></app-game-item>
+      <app-game-item *ngFor="let game of games;"
+        [game]="game"></app-game-item>
     </ul>
   </div>
 </div>
