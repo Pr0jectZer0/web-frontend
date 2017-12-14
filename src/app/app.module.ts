@@ -21,6 +21,7 @@ import {GameDetailComponent} from './game-library/game-detail/game-detail.compon
 import {GameListComponent} from './game-library/game-list/game-list.component';
 import { ChatsComponent } from './chats/chats.component';
 import { ChatComponent } from './chats/chat/chat.component';
+import {LibraryService} from './game-library/library.service';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { ChatComponent } from './chats/chat/chat.component';
     AuthService,
     AuthGuard,
     UsersService,
-    DisableService
+    DisableService,
+    LibraryService
   ],
   bootstrap: [AppComponent]
 })
