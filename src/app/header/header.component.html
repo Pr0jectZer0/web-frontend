@@ -9,7 +9,14 @@
 
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
+      <ng-template [ngIf]="authService.isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/library">Bibliothek</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/chat">Chaträume</a>
+        </li>
+      </ng-template>
     </ul>
     <ul class="navbar-nav">
       <ng-template [ngIf]="!authService.isAuthenticated()">

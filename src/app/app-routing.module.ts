@@ -14,11 +14,10 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'library', component: GameLibraryComponent, children: [
+      { path: ':id', component: GameDetailComponent },
+    ]},
   { path: 'not-found', component: ErrorPageComponent, },
-  { path: 'game-library', component: GameLibraryComponent, children: [
-    {path: '', component: GameStartComponent, },
-    {path: ':id', component: GameDetailComponent},
-  ]},
   { path: '**', redirectTo: '/not-found'}
 ];
 
