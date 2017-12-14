@@ -5,19 +5,27 @@
   background-color: #ffffff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,.25);
-  border-radius: .25rem;
+  border-radius: 0;
+}
+
+.chat-wrap:last-of-type .chat {
+  border-bottom: 0;
 }
 
 .chat-left {
-  padding-right: 0;
+  padding: 0;
 }
 
 .chat-right {
-  padding-left: 0;
+  padding: 0;
 }
 
 .chat-wrap {
   padding-top: 1em;
+}
+
+.chat-wrap:last-of-type {
+  border-bottom: 2px solid #DC143C;
 }
 
 h1 {
@@ -29,4 +37,24 @@ h2 {
   padding-top: 2em;
   font-size: 1.25em;
   text-align: center;
+}
+
+@media (max-width: 449px) {
+  .chat {
+    height: 60px;
+  }
+
+  .chat h1, .chat h2 {
+    font-size: 18px;
+    line-height: 60px;
+    padding: 0;
+    margin: auto;
+  }
+  .chat h1 {
+    padding-left: 20px;
+  }
+
+  .chat h2 .name {
+    display: none;
+  }
 }
