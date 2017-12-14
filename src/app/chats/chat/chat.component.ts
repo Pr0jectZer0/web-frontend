@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../shared/user.model';
 
 @Component({
   selector: 'app-chat',
@@ -6,13 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  emojis: string[] = [
+    ' 😁 ', ' 😂 '
+  ];
+  message: string = "";
+  isEmojiClicked: false;
+  user: User[];
+  messages: string[] = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  onEmoji() {
-
+  sendMessage() {
+    this.messages.push(this.message);
+    this.message = "";
   }
 }

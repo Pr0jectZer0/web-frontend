@@ -4,22 +4,32 @@
       <div class="col-xs-12 col-sm-9 chat">
         <div class="chat-content">
           <p class="name">Detlef:</p>
-          <p class="message">
-            😁
+          <p class="message" *ngFor="let m of messages">
+            {{ m }}
           </p>
         </div>
       </div>
       <div class="col-3 d-none d-sm-block chat">
-        <p>Detlef</p>
+        <p></p>
       </div>
     </div>
     <div class="chat-input col-12">
+      <div class="emojis" *ngIf="isEmojiClicked">
+        <span *ngFor="let emoji of emojis" (click)="message = message + emoji">
+          {{ emoji }}
+        </span>
+      </div>
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1" (click)="onEmoji">
+        <span class="input-group-addon" id="basic-addon1" (click)="isEmojiClicked = !isEmojiClicked">
           <i class="fa fa-frown-o" aria-hidden="true"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Nachricht" aria-label="message" aria-describedby="basic-addon1">
-        <span class="input-group-addon" id="basic-addon2">
+
+
+        <input type="text" class="form-control" placeholder="Nachricht" aria-label="message" aria-describedby="basic-addon1"
+               [(ngModel)]="message" (keyup.enter)="sendMessage()">
+
+
+        <span class="input-group-addon" id="basic-addon2" (click)="sendMessage()">
           <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </span>
       </div>
