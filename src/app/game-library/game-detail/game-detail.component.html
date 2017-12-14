@@ -1,12 +1,6 @@
 <div class="card" id="game-header">
   <h3>
-    <span *ngFor="let game of games">
-      <span ngSwitch="game.id">
-        <span ng-switch-when="id">
-          {{game.name}}
-        </span>
-      </span>
-    </span>
+    {{ game.name }}
   </h3>
   <hr>
   <div class="row" id="friends">
@@ -40,40 +34,20 @@
   </div>
   <div class="row" id="game-discription">
     <p>
-      <span *ngFor="let game of games">
-      <span ngSwitch="game.id">
-        <span ng-switch-when="id">
-          {{game.beschreibung}}
-        </span>
-      </span>
-    </span>
+      {{ game.beschreibung }}
     </p>
   </div>
   <hr>
   <div class="row" id="details">
     <ul class="nav" id="detail-list">
       <li class="nav-item">
-        <span class="detail-topic">Erstellt am:</span>
-        <span *ngFor="let game of games">
-          <span ngSwitch="game.id">
-            <span ng-switch-when="id">
-            {{game.created_at}}
-          </span>
-         </span>
-        </span>
+        <span class="detail-topic">Erstellt am: {{ game.created_at }}</span>
       </li>
       <li class="nav-item">
-        <span class="detail-topic">Letztes Update:</span>
-        <span *ngFor="let game of games">
-           <span ngSwitch="game.id">
-            <span ng-switch-when="id">
-              {{game.updated_at}}
-            </span>
-          </span>
-        </span>
+        <span class="detail-topic">Letztes Update: {{ game.updated_at }}</span>
       </li>
-      <li class="nav-item">Genre:</li>
-      <li class="nav-item">Publisher:</li>
+      <li class="nav-item">Genre: {{ genre.name }}</li>
+      <li class="nav-item">Publisher: {{ publisher.name }}</li>
     </ul>
   </div>
   <hr>
@@ -81,7 +55,7 @@
     <div class="col-6 review">
       <div class="row review-header">
         <p class="review-title">Titel</p>
-        <p class="review-author">von G&uuml;nther</p>
+        <p class="review-author">von Günther</p>
       </div>
     </div>
   </div>

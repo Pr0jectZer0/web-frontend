@@ -24,4 +24,8 @@ export class LibraryService {
     return this.http.get<Publisher[]>('https://pr0jectzer0.ml/api/publisher');
   }
 
+  public getGame(id: number): Observable<Game> {
+    return this.http.get<Game>('https://pr0jectzer0.ml/api/game/' + id);
+  }
+
 }

@@ -17,10 +17,9 @@ import {Subject} from "rxjs/Subject";
 export class GameDetailComponent implements OnInit {
 
   id: number;
-  games: Game[];
-  game: Game;
-  genres: Genre[];
-  publishers: Publisher[];
+  game: Game = new Game(0, "", "", 0, 0, "", "");
+  publisher: Publisher = new Publisher(0, "", "", "");
+  genre: Genre = new Genre(0, "", "", "");
 
 
   constructor(private route: ActivatedRoute, private libraryService: LibraryService) {
@@ -30,17 +29,29 @@ export class GameDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
+          this.libraryService.getGame(this.id).subscribe(
+            game => {
+              this.game = game['game'];
+              this.libraryService.getGenres().subscribe(genres => {
+                for(let genre of genres['Genre']) {
+                  if(this.game.id_genre == genre.id) {
+                    this.genre = genre;
+                    break;
+                  }
+                }
+              });
+              this.libraryService.getPublisher().subscribe(publishers => {
+                for(let publisher of publishers['publisher']) {
+                  if(this.game.id_publisher == publisher.id) {
+                    this.publisher = publisher;
+                    break;
+                  }
+                }
+              });
+            }
+          );
         }
       );
-    this.libraryService.getGames().subscribe(data => {
-      this.games = data;
-    });
-    this.libraryService.getGenres().subscribe(data => {
-      this.genres = data;
-    });
-    this.libraryService.getPublisher().subscribe(data => {
-      this.publishers = data;
-    });
   }
 }
