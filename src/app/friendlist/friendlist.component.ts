@@ -36,10 +36,13 @@ export class FriendlistComponent implements OnInit {
       for (let user of this.users) {
         if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
           this.friends.indexOf(user) < 0 &&
-          this.foundedUsers.length <= 8) {
+          this.foundedUsers.length <= 8 &&
+          user.id != this.auth.getID()) {
           this.foundedUsers.push(user);
         }
       }
+
+      this.auth.getID();
     }
   }
 

@@ -7,6 +7,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import {AuthGuard} from './auth/auth-guard.service';
 import {GameLibraryComponent} from './game-library/game-library.component';
+import {GameDetailComponent} from './game-library/game-detail/game-detail.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },

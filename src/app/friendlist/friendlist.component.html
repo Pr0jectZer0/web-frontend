@@ -14,7 +14,8 @@
             <i class="fa fa-trash" aria-hidden="true" (click)="deleteFriend(friend.id)"></i>
             <div class="float-left">
               <p>{{ friend.name }}</p>
-              <p>STATUS UNDEFINED</p>
+              <p style="font-size: 60px">
+                😀</p>
             </div>
           </div>
           <hr/>
@@ -24,7 +25,7 @@
       </div>
     </div>
     <div class="pos" *ngIf="foundedUsers.length != 0">
-      <div *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name; addFriend()">
+      <div *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name">
         {{ user.name }}
       </div>
     </div>
