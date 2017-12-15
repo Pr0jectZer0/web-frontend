@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'library', component: GameLibraryComponent, canActivate: [AuthGuard], children: [
     {path: ':id', component: GameDetailComponent},
   ]},
-  { path: 'group-profile', component: GroupProfileComponent},
+  { path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: ErrorPageComponent, },
   { path: '**', redirectTo: '/not-found'}
 ];
