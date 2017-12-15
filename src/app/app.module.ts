@@ -19,6 +19,7 @@ import {GameListComponent} from "./game-library/game-list/game-list.component";
 import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
 import {LibraryService} from "./game-library/library.service";
 import {UsersService} from './shared/users.service';
+import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {UsersService} from './shared/users.service';
     FriendlistComponent,
     GameListComponent,
     GameDetailComponent,
+    GroupProfileComponent,
   ],
   imports: [
     BrowserModule,
