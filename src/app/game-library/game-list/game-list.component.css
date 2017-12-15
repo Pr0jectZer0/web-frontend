@@ -86,9 +86,10 @@
 ul {
   text-align: center;
   padding: 0;
+  list-style: none;
 }
 
-ul:hover {
+li:hover {
   background-color: rgba(220, 20, 60, .5);
 }
 
