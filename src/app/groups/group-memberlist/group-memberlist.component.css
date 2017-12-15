@@ -81,14 +81,15 @@ td{
   width: 20%;
 }
 
-.status {
+.status-small{
   width: 10%;
 }
 
-.role{
-  width: 25%;
+.status-big{
+  width: 20%;
 }
 
 .name{
-  width: 45%;
+  width: 40%;
 }
+
