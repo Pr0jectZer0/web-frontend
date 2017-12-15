@@ -34,6 +34,7 @@
         </div>
         <h5 class="card-header d-xl-none d-lg-none" id="list-header">Mitgliederliste</h5>
         <div class="card-body">
+          <!-- Buttonbar -->
           <div class="row justify-content-center d-none d-lg-block d-xl-block">
             <div class="btn-group" role="group" id="group-btn-bar">
               <button type="button" class="btn btn-outline-danger">Mitglieder</button>
@@ -41,6 +42,17 @@
               <button type="button" class="btn btn-outline-danger">Notizen</button>
               <button type="button" class="btn btn-outline-danger">Termine</button>
             </div>
+          </div>
+          <!-- Liste -->
+          <div class="row justify-content-center" id="table-row">
+            <table border="1">
+              <tr>
+                <td class="name head-cell">Name</td>
+                <td class="role head-cell">Rolle</td>
+                <td class="status head-cell">Status</td>
+                <td class="since d-none d-lg-table-cell d-xl-table-cell head-cell">Mitglied seit</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

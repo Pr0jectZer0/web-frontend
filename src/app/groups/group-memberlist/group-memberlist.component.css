@@ -24,7 +24,7 @@ ul {
   width: 100%
 }
 
-li{
+li {
   margin-right: 40px;
 }
 
@@ -40,16 +40,51 @@ a:hover {
   text-decoration: none;
 }
 
-.btn-group{
+.btn-group {
   width: 100%;
 }
 
-.btn-group .btn{
+.btn-group .btn {
   width: 25%;
 }
 
-#list-header{
+#list-header {
   text-align: center;
 }
 
+#table-row {
+  padding-top: 20px;
+}
 
+table {
+  width: 100%;
+  border: 1px solid #DEDEDE;
+}
+
+.name {
+  width: 25%;
+}
+
+.head-cell {
+  border-bottom: 1px solid #DC143C;
+}
+
+tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+.since {
+  width: 20%;
+}
+
+.status {
+  width: 10%;
+}
+
+.role{
+  width: 25%;
+}
+
+.name{
+  width: 45%;
+}
