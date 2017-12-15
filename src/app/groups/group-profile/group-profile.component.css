@@ -1,0 +1,64 @@
+.container-fluid {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  height: calc(100% - 95px);
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+  text-align: center;
+}
+
+#main-row, #left, #right{
+  height: 100%;
+}
+
+#spacer{
+
+}
+
+.btn-group{
+  width: 90%;
+}
+
+.btn-group .btn{
+  width: 25%;
+}
+
+#button-row{
+  width: 100%;
+}
+
+img{
+  width: 90%;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  font-size: 18px;
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li:hover{
+  background-color: rgba(220, 20, 60, .5);
+}
+
+#groupOptionsButton{
+  width: 90%;
+  height: 40px;
+}
