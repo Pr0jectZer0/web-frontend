@@ -20,7 +20,7 @@ import {GameDetailComponent} from "./game-library/game-detail/game-detail.compon
 import {LibraryService} from "./game-library/library.service";
 import {UsersService} from './shared/users.service';
 import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
-import { GroupMemberlistComponent } from './group-memberlist/group-memberlist.component';
+import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
 
 
 @NgModule({
