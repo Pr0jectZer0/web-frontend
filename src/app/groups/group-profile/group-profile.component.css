@@ -62,3 +62,27 @@ li:hover{
   width: 90%;
   height: 40px;
 }
+
+#img-row{
+  height: 45%;
+}
+
+#detail-row{
+  height: 65%;
+}
+
+#left{
+  padding-bottom: 20px;
+}
+
+#right{
+  padding: 20px;
+}
+
+.btn-group{
+  width: 100%;
+}
+
+.btn-group button{
+  width: 25%;
+}
