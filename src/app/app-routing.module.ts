@@ -10,6 +10,7 @@ import { GameLibraryComponent } from './game-library/game-library.component';
 import { GameDetailComponent } from './game-library/game-detail/game-detail.component';
 import {GroupProfileComponent} from './groups/group-profile/group-profile.component';
 import {GroupMemberlistComponent} from './groups/group-memberlist/group-memberlist.component';
+import {GroupForumComponent} from "./groups/group-forum/group-forum.component";
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     {path: ':id', component: GameDetailComponent},
   ]},
   { path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard] },
+  { path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard] },
   { path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard] },
   { path: 'not-found', component: ErrorPageComponent, },
   { path: '**', redirectTo: '/not-found'}

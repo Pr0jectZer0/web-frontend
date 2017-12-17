@@ -1,0 +1,19 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  height: calc(100% - 95px);
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+}
+
+#main-row, .card, .card-body, .col-12 {
+  min-height: 100%;
+}

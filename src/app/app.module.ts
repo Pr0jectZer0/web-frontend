@@ -21,6 +21,7 @@ import {LibraryService} from "./game-library/library.service";
 import {UsersService} from './shared/users.service';
 import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
 import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
+import { GroupForumComponent } from './groups/group-forum/group-forum.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { GroupMemberlistComponent } from './groups/group-memberlist/group-member
     GameDetailComponent,
     GroupProfileComponent,
     GroupMemberlistComponent,
+    GroupForumComponent,
   ],
   imports: [
     BrowserModule,
