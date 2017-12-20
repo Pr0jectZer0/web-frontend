@@ -22,6 +22,7 @@ import {UsersService} from './shared/users.service';
 import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
 import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
 import { GroupForumComponent } from './groups/group-forum/group-forum.component';
+import { GroupForumPostComponent } from './group-forum-post/group-forum-post.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { GroupForumComponent } from './groups/group-forum/group-forum.component'
     GroupProfileComponent,
     GroupMemberlistComponent,
     GroupForumComponent,
+    GroupForumPostComponent,
   ],
   imports: [
     BrowserModule,
