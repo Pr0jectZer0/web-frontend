@@ -1,0 +1,102 @@
+.container-fluid {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  height: calc(100% - 95px);
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+  text-align: center;
+}
+
+#main-row, #left, #right{
+  height: 100%;
+}
+
+#spacer{
+
+}
+
+.btn-group{
+  width: 90%;
+}
+
+.btn-group .btn{
+  width: 25%;
+}
+
+#button-row{
+  width: 100%;
+}
+
+img{
+  width: 100%;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  font-size: 18px;
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li:hover{
+  background-color: rgba(220, 20, 60, .5);
+}
+
+#groupOptionsButton{
+  width: 50px;
+  height: 40px;
+}
+
+#img-row{
+  height: 40%;
+}
+
+#detail-row{
+  height: 60%;
+}
+
+#left, #right{
+  padding-bottom: 20px;
+}
+
+.card-body{
+  height: 100%;
+}
+
+#right card-body{
+  padding: 20px;
+  height: 100%;
+}
+
+.btn-group{
+  width: 100%;
+}
+
+.btn-group button{
+  width: 25%;
+}
+
+.leave-button{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.leave-row{
+  margin: 0 20px 0 20px;
+}

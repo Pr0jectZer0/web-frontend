@@ -88,10 +88,6 @@ ul {
   padding: 0;
 }
 
-ul:hover {
-  background-color: rgba(220, 20, 60, .5);
-}
-
 a {
   font-size: 18px;
   color: #212529;
@@ -99,4 +95,5 @@ a {
 
 a:hover {
   text-decoration: none;
+  background-color: rgba(220, 20, 60, .5);
 }
