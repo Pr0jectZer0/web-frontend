@@ -1,6 +1,7 @@
-.container {
+.container-fluid {
   margin-top: 20px;
   margin-bottom: 15px;
+  height: calc(100% - 95px);
 }
 
 .card {
@@ -12,11 +13,6 @@
   border-radius: 0;
   border-bottom: 1px solid #DC143C;
   text-align: center;
-}
-
-.card .card-body {
-  padding-top: 35px;
-  padding-bottom: 35px;
 }
 
 #game-header {
@@ -76,10 +72,6 @@
   border: 3px solid #FF0000;
 }
 
-#game-list{
-  min-height: 100%;
-}
-
-#game-content{
-  min-height: 100%;
+.row, app-game-list, #game-content {
+  height: 100%;
 }

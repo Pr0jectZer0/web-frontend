@@ -15,13 +15,16 @@ import { FriendlistComponent } from './friendlist/friendlist.component';
 import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
+import {GameListComponent} from "./game-library/game-list/game-list.component";
+import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
+import {LibraryService} from "./game-library/library.service";
 import {UsersService} from './shared/users.service';
-import {GameItemComponent} from './game-library/game-list/game-item/game-item.component';
-import {GameDetailComponent} from './game-library/game-detail/game-detail.component';
-import {GameListComponent} from './game-library/game-list/game-list.component';
-import { ChatsComponent } from './chats/chats.component';
-import { ChatComponent } from './chats/chat/chat.component';
-import {LibraryService} from './game-library/library.service';
+import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
+import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
+import { GroupForumComponent } from './groups/group-forum/group-forum.component';
+import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-post.component';
+import {ChatsComponent} from './chats/chats.component';
+import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
 
 
@@ -36,9 +39,12 @@ import {PusherService} from './shared/pusher.service';
     FriendlistComponent,
     GameListComponent,
     GameDetailComponent,
-    GameItemComponent,
     ChatsComponent,
     ChatComponent,
+    GroupProfileComponent,
+    GroupMemberlistComponent,
+    GroupForumComponent,
+    GroupForumPostComponent,
   ],
   imports: [
     BrowserModule,

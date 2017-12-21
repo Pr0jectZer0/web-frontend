@@ -14,13 +14,8 @@
   text-align: center;
 }
 
-.card .card-body {
-  padding-top: 35px;
-  padding-bottom: 35px;
-}
-
 #game-header {
-  padding: 40px 20px 20px 50px;
+  padding: 40px 20px;
 }
 
 #game-discription {
@@ -82,4 +77,23 @@
 
 #game-content{
   min-height: 100%;
+}
+
+.card-body {
+  padding: 15px 0;
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+}
+
+a {
+  font-size: 18px;
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: rgba(220, 20, 60, .5);
 }
