@@ -70,9 +70,15 @@
           <div class="row" id="bottom">
             <div class="row justify-content-center" id="input">
               <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-addon">.00</span>
+                <span class="input-group-addon" id="basic-addon1" (click)="isEmojiClicked = !isEmojiClicked">
+                  <i class="fa fa-frown-o" aria-hidden="true"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Nachricht" aria-label="message"
+                       aria-describedby="basic-addon1"
+                       [(ngModel)]="message" (keyup.enter)="sendMessage()">
+                <span class="input-group-addon" id="basic-addon2" (click)="sendMessage()">
+                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </span>
               </div>
             </div>
           </div>
