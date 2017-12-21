@@ -23,6 +23,9 @@ import { GroupProfileComponent } from './groups/group-profile/group-profile.comp
 import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
 import { GroupForumComponent } from './groups/group-forum/group-forum.component';
 import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-post.component';
+import {ChatsComponent} from './chats/chats.component';
+import {ChatComponent} from './chats/chat/chat.component';
+import {PusherService} from './shared/pusher.service';
 
 
 @NgModule({
@@ -36,6 +39,8 @@ import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-p
     FriendlistComponent,
     GameListComponent,
     GameDetailComponent,
+    ChatsComponent,
+    ChatComponent,
     GroupProfileComponent,
     GroupMemberlistComponent,
     GroupForumComponent,
@@ -54,7 +59,8 @@ import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-p
     AuthGuard,
     UsersService,
     DisableService,
-    LibraryService
+    LibraryService,
+    PusherService
   ],
   bootstrap: [AppComponent]
 })

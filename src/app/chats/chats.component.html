@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <div class="row chat-wrap" *ngFor="let chat of chats">
+        <div class="col-9 chat-left">
+          <div class="chat">
+            <h1>
+              {{ chat.name }}
+            </h1>
+          </div>
+        </div>
+        <div class="col-3 chat-right">
+          <div class="chat">
+            <h2>
+              <span>{{ chat.anzahl }}</span><span class="name"> Benutzer</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

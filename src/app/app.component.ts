@@ -10,8 +10,7 @@ import {DisableService} from './shared/disable.service';
 export class AppComponent implements OnInit {
   constructor(public auth: AuthService, private disableService: DisableService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onDisable() {
     this.disableService.disable.next(true);
