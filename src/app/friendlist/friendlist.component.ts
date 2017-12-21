@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/user.model';
 import {UsersService} from '../shared/users.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-friendlist',
@@ -58,7 +59,11 @@ export class FriendlistComponent implements OnInit {
   isGroupsSelected: boolean = false;
   users: User[];
 
-  constructor(private disableService: DisableService, private http: HttpClient, private auth: AuthService, private usersService: UsersService) { }
+  constructor(private disableService: DisableService,
+              private http: HttpClient,
+              private auth: AuthService,
+              private usersService: UsersService,
+              private router: Router) { }
 
   ngOnInit() {
     this.disableService.disable.subscribe(
@@ -87,6 +92,8 @@ export class FriendlistComponent implements OnInit {
       .subscribe(
         () => {
           this.updateFriends();
+          this.username = "";
+          this.foundedUsers = [];
         }, () => {
           this.error = "Freund bereits vorhanden";
         }
@@ -97,6 +104,14 @@ export class FriendlistComponent implements OnInit {
     this.http.delete('https://pr0jectzer0.ml/api/friend/remove/'+ id +'?token=' + this.auth.getToken()).subscribe(
       () => {
         this.updateFriends();
+      }
+    );
+  }
+
+  openChat(id: number) {
+    this.http.get('https://pr0jectzer0.ml/api/chatroom/' + id + '?token=' + this.auth.getToken()).subscribe(
+      data => {
+        this.router.navigate(['/chat', data['chatroom']], );
       }
     );
   }

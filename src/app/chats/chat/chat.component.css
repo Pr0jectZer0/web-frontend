@@ -37,7 +37,11 @@
 }
 
 .chat-content {
-  padding-bottom: 5px;
+  margin-top: -2px;
+}
+
+.chat-content:first-child {
+  margin-top: 0;
 }
 
 .chat-content:last-of-type {

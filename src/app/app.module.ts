@@ -22,6 +22,7 @@ import {GameListComponent} from './game-library/game-list/game-list.component';
 import { ChatsComponent } from './chats/chats.component';
 import { ChatComponent } from './chats/chat/chat.component';
 import {LibraryService} from './game-library/library.service';
+import {PusherService} from './shared/pusher.service';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {LibraryService} from './game-library/library.service';
     AuthGuard,
     UsersService,
     DisableService,
-    LibraryService
+    LibraryService,
+    PusherService
   ],
   bootstrap: [AppComponent]
 })
