@@ -25,6 +25,7 @@ import { GroupProfileComponent } from './groups/group-profile/group-profile.comp
 import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
 import { GroupForumComponent } from './groups/group-forum/group-forum.component';
 import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-post.component';
+import {GroupsService} from "./shared/groups.service";
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-p
     AuthGuard,
     UsersService,
     DisableService,
-    LibraryService
+    LibraryService,
+    GroupsService
   ],
   bootstrap: [AppComponent]
 })

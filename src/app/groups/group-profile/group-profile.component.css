@@ -1,7 +1,7 @@
 .container-fluid {
   margin-top: 20px;
   margin-bottom: 15px;
-  height: calc(100% - 95px);
+  height: calc(100% - 95px - 35px);
 }
 
 .card {
