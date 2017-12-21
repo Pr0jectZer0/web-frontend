@@ -26,7 +26,7 @@ export class SigninComponent implements OnInit {
     });
 
     if(this.authService.isAuthenticated()) {
-      this.router.navigate(['/game-library']);
+      this.router.navigate(['/library']);
     }
   }
 

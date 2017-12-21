@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     });
 
     if(this.authService.isAuthenticated()) {
-      this.router.navigate(['/game-library']);
+      this.router.navigate(['/library']);
     }
   }
 
