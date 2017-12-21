@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import {isEmailValid} from "../../shared/is-email-valid.directive";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   passwords: FormGroup;
   error: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.passwords = new FormGroup({
@@ -30,6 +31,10 @@ export class SignupComponent implements OnInit {
     this.authService.error.subscribe((err: string) => {
       this.error = err;
     });
+
+    if(this.authService.isAuthenticated()) {
+      this.router.navigate(['/game-library']);
+    }
   }
 
   onSignup() {

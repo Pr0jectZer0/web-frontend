@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import {isEmailValid} from "../../shared/is-email-valid.directive";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,7 @@ export class SigninComponent implements OnInit {
   signinForm: FormGroup;
   error: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router:Router) { }
 
   ngOnInit() {
     this.signinForm = new FormGroup({
@@ -23,6 +24,10 @@ export class SigninComponent implements OnInit {
     this.authService.error.subscribe((err: string) => {
       this.error = err;
     });
+
+    if(this.authService.isAuthenticated()) {
+      this.router.navigate(['/game-library']);
+    }
   }
 
   onSignin(form: NgForm) {
