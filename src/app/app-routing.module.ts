@@ -16,29 +16,21 @@ import {GroupForumComponent} from "./groups/group-forum/group-forum.component";
 import {GroupForumPostComponent} from "./groups/group-forum-post/group-forum-post.component";
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
-  { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent },
-  { path: 'library', component: GameLibraryComponent, children: [
-      { path: ':id', component: GameDetailComponent },
-    ]},
-  { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
-  { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
-  { path: 'not-found', component: ErrorPageComponent },
-  { path: '**', redirectTo: '/not-found'}
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
   {
-    path: 'library', component: GameLibraryComponent, canActivate: [AuthGuard], children: [
+    path: 'library', component: GameLibraryComponent, children: [
     {path: ':id', component: GameDetailComponent},
   ]
   },
+  {path: 'chat', component: ChatsComponent, canActivate: [AuthGuard]},
+  {path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard]},
   {path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard]},
   {path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard]},
   {path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
-  {path: 'not-found', component: ErrorPageComponent,},
+  {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 

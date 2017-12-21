@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-group-forum-post',
@@ -7,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupForumPostComponent implements OnInit {
 
-  constructor() { }
+  emojis: string[] = [
+    ' 😁 ', ' 😂 '
+  ];
+  isEmojiClicked: false;
+  message: string = "";
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
