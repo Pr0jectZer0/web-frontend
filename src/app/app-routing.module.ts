@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   {path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard]},
   {path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
-  {path: 'not-found', component: ErrorPageComponent,},
+  {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
