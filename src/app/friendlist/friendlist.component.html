@@ -13,7 +13,7 @@
             <img class="float-left" src="../../assets/profile.png" height="50" width="50" />
             <i class="fa fa-trash" aria-hidden="true" (click)="deleteFriend(friend.id)"></i>
             <div class="float-left">
-              <p (click)="openChat(friend.id)">{{ friend.name }}</p>
+              <p class="chat" (click)="openChat(friend.id)">{{ friend.name }}</p>
               <p>Status undefined</p>
             </div>
           </div>
