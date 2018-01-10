@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+import {GroupsService} from "../../shared/groups.service";
 
 @Component({
   selector: 'app-group-memberlist',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupMemberlistComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+
+  constructor(private groupService: GroupsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+        });
   }
 
 }
