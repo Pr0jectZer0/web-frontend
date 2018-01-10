@@ -1,3 +1,4 @@
+///<reference path="game-library/game-detail/game-detail.component.ts"/>
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -23,6 +24,10 @@ import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-p
 import {ChatsComponent} from './chats/chats.component';
 import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
+import {LibraryService} from "./game-library/library.service";
+import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
+import {GameListComponent} from "./game-library/game-list/game-list.component";
+import {GroupsService} from "./shared/groups.service";
 
 
 @NgModule({
@@ -56,7 +61,8 @@ import {PusherService} from './shared/pusher.service';
     AuthGuard,
     UsersService,
     DisableService,
-    LibraryService
+    LibraryService,
+    GroupsService
   ],
   bootstrap: [AppComponent]
 })

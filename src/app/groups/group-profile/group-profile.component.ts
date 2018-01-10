@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GroupsService} from "../../shared/groups.service";
 
 @Component({
   selector: 'app-group-profile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private groupService: GroupsService) { }
 
   ngOnInit() {
   }

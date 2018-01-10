@@ -26,9 +26,9 @@ const appRoutes: Routes = [
   },
   { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
   { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
-  {path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard]},
+  {path: 'group-profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard]},
   {path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard]},
-  {path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
+  {path: 'group-memberlist/:id', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
   {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
