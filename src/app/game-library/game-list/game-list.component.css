@@ -95,5 +95,9 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+ul:hover {
+  text-decoration: none;
   background-color: rgba(220, 20, 60, .5);
 }

@@ -16,16 +16,13 @@ import {DisableService} from './shared/disable.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthGuard} from './auth/auth-guard.service';
 import {UsersService} from './shared/users.service';
-import {GameDetailComponent} from './game-library/game-detail/game-detail.component';
-import {GameListComponent} from './game-library/game-list/game-list.component';
+import { GroupProfileComponent } from './groups/group-profile/group-profile.component';
+import { GroupMemberlistComponent } from './groups/group-memberlist/group-memberlist.component';
+import { GroupForumComponent } from './groups/group-forum/group-forum.component';
+import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-post.component';
 import {ChatsComponent} from './chats/chats.component';
 import {ChatComponent} from './chats/chat/chat.component';
-import {LibraryService} from './game-library/library.service';
-import {GroupProfileComponent} from './groups/group-profile/group-profile.component';
-import {GroupMemberlistComponent} from './groups/group-memberlist/group-memberlist.component';
-import {GroupForumComponent} from './groups/group-forum/group-forum.component';
-import {GroupForumPostComponent} from './groups/group-forum-post/group-forum-post.component';
-import {GroupsService} from './shared/groups.service';
+import {PusherService} from './shared/pusher.service';
 
 
 @NgModule({
@@ -59,8 +56,7 @@ import {GroupsService} from './shared/groups.service';
     AuthGuard,
     UsersService,
     DisableService,
-    LibraryService,
-    GroupsService
+    LibraryService
   ],
   bootstrap: [AppComponent]
 })

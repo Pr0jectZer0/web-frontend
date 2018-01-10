@@ -24,8 +24,8 @@ const appRoutes: Routes = [
     {path: ':id', component: GameDetailComponent},
   ]
   },
-  {path: 'chat', component: ChatsComponent, canActivate: [AuthGuard]},
-  {path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard]},
+  { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
+  { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
   {path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard]},
   {path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard]},
   {path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
@@ -38,5 +38,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
