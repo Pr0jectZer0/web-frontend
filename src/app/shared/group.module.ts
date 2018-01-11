@@ -1,10 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
-})
-export class GroupModule { }
+export class GroupModule {
+  constructor(public name: string,
+              public beschreibung: string) {
+  }
+}

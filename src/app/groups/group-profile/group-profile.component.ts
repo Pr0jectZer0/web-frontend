@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GroupsService} from "../../shared/groups.service";
 import {ActivatedRoute, Params} from "@angular/router";
+import {GroupModule} from "../../shared/group.module";
 
 @Component({
   selector: 'app-group-profile',
@@ -10,6 +11,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class GroupProfileComponent implements OnInit {
 
   id: number;
+  group: GroupModule;
 
   constructor(private groupService: GroupsService, private route: ActivatedRoute) {
   }
@@ -20,10 +22,9 @@ export class GroupProfileComponent implements OnInit {
         (params: Params) => {
           this.id = params['id'];
           this.groupService.getGroup(0).subscribe(data => {
-            console.log(data);
+            this.group = data;
           });
         });
-    this.groupService.createGroup('x', 'y');
   }
 
 }

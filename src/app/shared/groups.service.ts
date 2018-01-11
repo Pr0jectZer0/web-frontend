@@ -12,10 +12,10 @@ export class GroupsService {
   }
 
   public getGroup(id: number): Observable<GroupModule> {
-    return this.http.get('http://pr0jectzer0.ml/api/group/' + id);
+    return this.http.get<GroupModule>('http://pr0jectzer0.ml/api/group/' + id + '?' + this.auth.getToken());
   }
 
   public createGroup(name: string, desc: string) {
-    this.http.put('https://pr0jectzer0.ml/api/group', {'name': name, 'beschreibung': desc});
+    this.http.put('https://pr0jectzer0.ml/api/group' + '?' + this.auth.getToken(), {'name': name, 'beschreibung': desc});
   }
 }
