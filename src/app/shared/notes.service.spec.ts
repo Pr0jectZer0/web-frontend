@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { NotesService } from './notes.service';
+import { NotesService } from '../notes/notes.service';
 
 describe('NotesService', () => {
   beforeEach(() => {

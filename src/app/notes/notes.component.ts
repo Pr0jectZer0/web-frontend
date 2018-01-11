@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Note} from './note.model';
-import {NotesService} from '../shared/notes.service';
+import {NotesService} from './notes.service';
 import {Observable} from 'rxjs/Observable';
 
 @Component({

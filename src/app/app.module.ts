@@ -27,7 +27,7 @@ import {ChatsComponent} from './chats/chats.component';
 import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
 import { NotesComponent } from './notes/notes.component';
-import {NotesService} from './shared/notes.service';
+import {NotesService} from './notes/notes.service';
 
 
 @NgModule({
