@@ -12,5 +12,16 @@ export class NotesService {
   public getNotes(): Observable<Note[]> {
     return this.http.get<Note[]>('https://pr0jectzer0.ml/api/notes?token=' + this.auth.getToken());
   }
+
+  public getNote(id: number): Observable<Note> {
+    return this.http.get<Note>('https://pr0jectzer0.ml/api/note/' + id + '?token=' + this.auth.getToken());
+  }
+
+  public setNote(id: number, titel: string, text: string) {
+    return this.http.put('https://pr0jectzer0.ml/api/note/' + id + '?token=' + this.auth.getToken(), {
+      'titel': titel,
+      'text': text
+    });
+  }
 }
 
