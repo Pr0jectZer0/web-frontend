@@ -11,7 +11,7 @@ import {GroupModule} from "../../shared/group.module";
 export class GroupProfileComponent implements OnInit {
 
   id: number;
-  group: GroupModule;
+  group = new GroupModule(1, '', '', '', '', [])
 
   constructor(private groupService: GroupsService, private route: ActivatedRoute) {
   }
@@ -21,8 +21,8 @@ export class GroupProfileComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
-          this.groupService.getGroup(0).subscribe(data => {
-            this.group = data;
+          this.groupService.getGroup(this.id).subscribe(data => {
+            this.group = data['group'];
           });
         });
   }
