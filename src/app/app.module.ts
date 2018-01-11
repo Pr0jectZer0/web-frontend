@@ -26,6 +26,7 @@ import { GroupForumPostComponent } from './groups/group-forum-post/group-forum-p
 import {ChatsComponent} from './chats/chats.component';
 import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
+import { NotesComponent } from './notes/notes.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {PusherService} from './shared/pusher.service';
     GroupMemberlistComponent,
     GroupForumComponent,
     GroupForumPostComponent,
+    NotesComponent,
   ],
   imports: [
     BrowserModule,
