@@ -9,12 +9,26 @@
   align-items: center;
 }
 
+.card {
+  margin-bottom: 1em;
+  border-radius: 0;
+}
+
+.create-card {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 11px;
+}
+
 h1 {
   position: relative;
   height: 40px;
 }
 
 i {
-  cursor: pointer;
   color: #FF0000;
+}
+
+.link {
+  cursor: pointer;
 }

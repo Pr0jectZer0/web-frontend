@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class NotesComponent implements OnInit {
   notes: Note[];
+  noteName: string;
 
   constructor(private noteService: NotesService,
               private router: Router) {}
@@ -21,11 +22,16 @@ export class NotesComponent implements OnInit {
   }
 
   deleteNote(id) {
-    this.notes.slice(id, 1)
-    //api delete rout
+    this.noteService.deleteNote(id);
+    this.notes.slice(id, 1);
   }
 
   noteClicked(id) {
-    this.router.navigate(['/notes/', id]);
+    this.router.navigate(['/notes', id]);
+  }
+
+  createNote() {
+    this.noteService.newNote(this.noteName, 'x');
+    this.noteName = '';
   }
 }
