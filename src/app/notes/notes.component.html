@@ -1,7 +1,8 @@
 <div class="container">
   <div class="card col-12" *ngFor="let note of notes">
     <div class="card-body">
-      <h1 class="card-title">{{note.titel}}</h1>
+      <h1 (click)="noteClicked(note.id)">{{note.titel}}</h1>
+      <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteNote(note.id)"></i>
     </div>
   </div>
 </div>

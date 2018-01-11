@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Note} from './note.model';
 import {NotesService} from './notes.service';
-import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -11,11 +11,21 @@ import {Observable} from 'rxjs/Observable';
 export class NotesComponent implements OnInit {
   notes: Note[];
 
-  constructor(private noteService: NotesService) {}
+  constructor(private noteService: NotesService,
+              private router: Router) {}
 
   ngOnInit() {
     this.noteService.getNotes().subscribe((data) => {
       this.notes = data['notes'];
     });
+  }
+
+  deleteNote(id) {
+    this.notes.slice(id, 1)
+    //api delete rout
+  }
+
+  noteClicked(id) {
+    this.router.navigate(['/notes/', id]);
   }
 }
