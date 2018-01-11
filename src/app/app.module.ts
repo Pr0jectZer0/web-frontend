@@ -28,6 +28,7 @@ import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
 import { NotesComponent } from './notes/notes.component';
 import {NotesService} from './notes/notes.service';
+import { NoteComponent } from './notes/note/note.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import {NotesService} from './notes/notes.service';
     GroupForumComponent,
     GroupForumPostComponent,
     NotesComponent,
+    NoteComponent,
   ],
   imports: [
     BrowserModule,
