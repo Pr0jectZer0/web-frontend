@@ -27,6 +27,7 @@ import {ChatsComponent} from './chats/chats.component';
 import {ChatComponent} from './chats/chat/chat.component';
 import {PusherService} from './shared/pusher.service';
 import { NotesComponent } from './notes/notes.component';
+import {NotesService} from './shared/notes.service';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { NotesComponent } from './notes/notes.component';
     UsersService,
     DisableService,
     LibraryService,
-    PusherService
+    PusherService,
+    NotesService
   ],
   bootstrap: [AppComponent]
 })
