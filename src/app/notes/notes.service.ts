@@ -26,7 +26,7 @@ export class NotesService {
       );
   }
 
-  public deleteNote(id: number): Observable {
+  public deleteNote(id: number): Observable<Object> {
     return this.http.delete("https://pr0jectzer0.ml/api/note/" + id + "?token=" + this.auth.getToken());
   }
 
