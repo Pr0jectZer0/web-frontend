@@ -1,0 +1,12 @@
+.container-fluid {
+  padding-top: 1em;
+  height: calc(100% - 95px);
+}
+
+.row {
+  height: 100%;
+}
+
+.col-12 div {
+  border: 1px solid rgba(0,0,0,.25);
+}
