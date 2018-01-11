@@ -53,6 +53,13 @@
                 <td class="status-small d-table-cell d-lg-none d-xl-none head-cell">Status</td>
                 <td class="since d-none d-lg-table-cell d-xl-table-cell head-cell">Mitglied seit</td>
               </tr>
+              <tr *ngFor="let member of group.users">
+                <td class="name head-cell">{{member.user.name}}</td>
+                <td class="head-cell">{{member.rolle}}</td>
+                <td class="status-big d-none d-lg-table-cell d-xl-table-cell head-cell">UNDEFINED</td>
+                <td class="status-small d-table-cell d-lg-none d-xl-none head-cell">Status</td>
+                <td class="since d-none d-lg-table-cell d-xl-table-cell head-cell">{{member.created_at}}</td>
+              </tr>
             </table>
           </div>
         </div>

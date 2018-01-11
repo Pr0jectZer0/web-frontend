@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {GroupsService} from "../../shared/groups.service";
+import {GroupModule} from "../../shared/group.module";
+import {Member} from "../../shared/member.model";
 
 @Component({
   selector: 'app-group-memberlist',
@@ -10,6 +12,8 @@ import {GroupsService} from "../../shared/groups.service";
 export class GroupMemberlistComponent implements OnInit {
 
   id: number;
+  group = new GroupModule(0, '', '', '', '', []);
+  users: Member[];
 
   constructor(private groupService: GroupsService, private route: ActivatedRoute) { }
 
@@ -18,6 +22,10 @@ export class GroupMemberlistComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = params['id'];
+          this.groupService.getGroup(this.id).subscribe(data => {
+            this.group = data['group'];
+            this.users = this.group.users;
+          });
         });
   }
 

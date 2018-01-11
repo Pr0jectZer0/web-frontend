@@ -1,4 +1,5 @@
 import {User} from "./user.model";
+import {Member} from "./member.model";
 
 export class GroupModule {
   constructor(public id: number,
@@ -6,6 +7,6 @@ export class GroupModule {
               public beschreibung: string,
               public created_at: string,
               public updated_at: string,
-              public users: User[]) {
+              public users: Member[]) {
   }
 }
