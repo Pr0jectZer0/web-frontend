@@ -22,8 +22,11 @@ export class NotesComponent implements OnInit {
   }
 
   deleteNote(id) {
-    this.noteService.deleteNote(id);
-    this.notes.slice(id, 1);
+    this.noteService.deleteNote(id).subscribe(
+      () => {
+        this.ngOnInit()
+      }
+    );
   }
 
   noteClicked(id) {
