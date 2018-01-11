@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {GroupsService} from "../../shared/groups.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {GroupModule} from "../../shared/group.module";
+import {AuthService} from "../../auth/auth.service";
 
 @Component({
   selector: 'app-group-profile',
@@ -11,9 +12,10 @@ import {GroupModule} from "../../shared/group.module";
 export class GroupProfileComponent implements OnInit {
 
   id: number;
-  group = new GroupModule(1, '', '', '', '', [])
+  group = new GroupModule(1, '', '', '', '', []);
+  groups: GroupModule[];
 
-  constructor(private groupService: GroupsService, private route: ActivatedRoute) {
+  constructor(private groupService: GroupsService, private route: ActivatedRoute, private auth: AuthService) {
   }
 
   ngOnInit() {
@@ -25,6 +27,20 @@ export class GroupProfileComponent implements OnInit {
             this.group = data['group'];
           });
         });
+    this.groupService.getGroups().subscribe(data => {
+      this.groups = data['groups'];
+    });
+  }
+
+  public isMember(): boolean {
+    if (this.groups != null) {
+      for (let g of this.groups) {
+        if (this.group.id === g.id) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
 }

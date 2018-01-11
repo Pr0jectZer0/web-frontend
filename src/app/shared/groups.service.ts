@@ -20,6 +20,6 @@ export class GroupsService {
   }
 
   public getGroups(): Observable<GroupModule[]> {
-    return this.http.get<GroupModule[]>('http://pr0jectzer0.ml/api/group/?token=' + this.auth.getToken());
+    return this.http.get<GroupModule[]>('http://pr0jectzer0.ml/api/groups?token=' + this.auth.getToken());
   }
 }

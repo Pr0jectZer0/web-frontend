@@ -3,7 +3,7 @@
     <!-- Left Side -->
     <div class="col-md-6 justify-content-center d-none d-xl-block d-none d-lg-block d-xl-none">
       <div class="card" id="left">
-        <h3 class="card-header">Gruppenname</h3>
+        <h3 class="card-header">{{group.name}}</h3>
         <div class="card-body">
           <!-- Buttonbar -->
           <div class="btn-group" role="group" id="group-btn-bar">
@@ -15,7 +15,8 @@
         </div>
         <!-- Verlassen Button -->
         <div class="row justify-content-center leave-row">
-          <button type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button">Beitreten</button>
         </div>
       </div>
     </div>
@@ -70,7 +71,8 @@
         </div>
         <!-- Leave Button  -->
         <div class="row justify-content-center leave-row d-xl-none d-lg-none">
-          <button type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button">Beitreten</button>
         </div>
       </div>
     </div>

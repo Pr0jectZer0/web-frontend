@@ -28,6 +28,7 @@ import {LibraryService} from "./game-library/library.service";
 import {GameDetailComponent} from "./game-library/game-detail/game-detail.component";
 import {GameListComponent} from "./game-library/game-list/game-list.component";
 import {GroupsService} from "./shared/groups.service";
+import { GroupCreateComponent } from './groups/group-create/group-create.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import {GroupsService} from "./shared/groups.service";
     GroupMemberlistComponent,
     GroupForumComponent,
     GroupForumPostComponent,
+    GroupCreateComponent,
   ],
   imports: [
     BrowserModule,
