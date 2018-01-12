@@ -1,1 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <h4 class="card-header">Gruppe erstellen</h4>
+        <div class="card-body">
+          <form [formGroup]="createGroupForm" (ngSubmit)="onCreateGroup(f)" #f="ngForm">
+            <div class="form-group">
+              <label for="name">Gruppenname</label>
+              <input [ngClass]="{ deny: !createGroupForm.get('name').valid && createGroupForm.get('name').touched }"
+                     type="name"
+                     class="form-control"
+                     id="name"
+                     placeholder="Gruppenname"
+                     formControlName="name"
+                     name="name" ngModel>
+              <label for="desc">Gruppenbeschreibung</label>
+              <input [ngClass]="{ deny: !createGroupForm.get('desc').valid && createGroupForm.get('desc').touched }"
+                     type="desc"
+                     class="form-control"
+                     id="desc"
+                     placeholder="Gruppenbeschreibung"
+                     formControlName="desc"
+                     name="desc" ngModel>
+            </div>
+            <div class="clearfix footer">
+              <button type="submit" class="float-right btn btn-outline-danger" [disabled]="!createGroupForm.valid">Erstellen</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
