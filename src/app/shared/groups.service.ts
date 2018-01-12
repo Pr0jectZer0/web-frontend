@@ -16,10 +16,17 @@ export class GroupsService {
   }
 
   public createGroup(name: string, desc: string) {
-    this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {'name': name, 'beschreibung': desc});
+    this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {
+      'name': name,
+      'beschreibung': desc
+    });
   }
 
   public getGroups(): Observable<Group[]> {
     return this.http.get<Group[]>('https://pr0jectzer0.ml/api/groups?token=' + this.auth.getToken());
+  }
+
+  public joinGroup(id: number) {
+    
   }
 }

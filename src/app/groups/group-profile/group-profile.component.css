@@ -94,7 +94,9 @@ li:hover{
 
 .leave-button{
   width: 100%;
-  margin-top: 20px;
+  margin: 20px 20px 0 20px;
+  padding-bottom: 5px;
+  height: 40px;
 }
 
 .leave-row{

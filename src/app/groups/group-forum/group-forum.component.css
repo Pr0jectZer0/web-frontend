@@ -96,3 +96,7 @@ td{
 #nav-btn-bar{
   padding: 20px;
 }
+
+button:focus{
+  outline: 0;
+}

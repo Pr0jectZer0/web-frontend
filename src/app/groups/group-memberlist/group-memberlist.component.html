@@ -17,10 +17,10 @@
         <div class="collapse" id="collapse-navigation">
           <div class="card card-body" id="nav-list">
             <ul>
-              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-memberlist/0">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">
                 <li>Mitglieder</li>
               </a>
-              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-forum">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-forum/{{id}}">
                 <li>Forum</li>
               </a>
               <a style="cursor: pointer" class="clearfix" href="">
@@ -37,8 +37,9 @@
           <!-- Buttonbar -->
           <div class="row justify-content-center d-none d-lg-block d-xl-block">
             <div class="btn-group" role="group" id="group-btn-bar">
-              <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-memberlist">Mitglieder</button>
-              <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-forum">Forum</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-profile/{{id}}">Übersicht</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-memberlist/{{id}}">Mitglieder</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-forum/{{id}}">Forum</button>
               <button type="button" class="btn btn-outline-danger">Notizen</button>
               <button type="button" class="btn btn-outline-danger">Termine</button>
             </div>

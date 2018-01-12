@@ -44,4 +44,8 @@ export class GroupProfileComponent implements OnInit {
     return false;
   }
 
+  public leaveGroup() {
+
+  }
+
 }

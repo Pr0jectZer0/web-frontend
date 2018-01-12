@@ -93,3 +93,12 @@ td{
   width: 40%;
 }
 
+button:focus {
+  outline: 0;
+}
+
+.active{
+  outline: 0;
+  box-shadow: none;
+}
+

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-group-forum-post',
@@ -13,10 +14,17 @@ export class GroupForumPostComponent implements OnInit {
   isEmojiClicked: false;
   message: string = "";
 
-  constructor() {
+  id: number;
+
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = params['id'];
+        });
   }
 
 }
