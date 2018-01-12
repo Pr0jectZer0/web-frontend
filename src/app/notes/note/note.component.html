@@ -5,7 +5,7 @@
       <input *ngIf="editName" (keyup.enter)="onUpdateName()" [(ngModel)]="this.note.titel"/>
       <p>von {{ this.note.user.name }}</p>
 
-      <button class="btn btn-link float-right" *ngIf="editText" (click)="onUpdateText()">Save</button>
+      <button class="btn btn-link float-right" *ngIf="editText" (click)="onUpdateText()">Speichern</button>
     </div>
     <div class="row col-12" (click)="onUpdateName()">
       <div *ngIf="!editText" class="content col-xs-12 col-sm-9" (click)="editText = true">
