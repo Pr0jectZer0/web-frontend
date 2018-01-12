@@ -29,6 +29,7 @@ export class GroupProfileComponent implements OnInit {
         });
     this.groupService.getGroups().subscribe(data => {
       this.groups = data['groups'];
+      console.log(this.groups);
     });
   }
 

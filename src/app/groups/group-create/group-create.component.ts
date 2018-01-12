@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
 import {isEmailValid} from "../../shared/is-email-valid.directive";
+import {GroupsService} from "../../shared/groups.service";
 
 @Component({
   selector: 'app-group-create',
@@ -11,7 +12,7 @@ export class GroupCreateComponent implements OnInit {
 
   createGroupForm: FormGroup;
 
-  constructor() {
+  constructor(private groupService: GroupsService) {
   }
 
   ngOnInit() {
@@ -22,7 +23,9 @@ export class GroupCreateComponent implements OnInit {
   }
 
   onCreateGroup(form: NgForm) {
-
+    const name = form.value.name;
+    const desc = form.value.desc;
+    this.groupService.createGroup(name, desc);
   }
 
 }

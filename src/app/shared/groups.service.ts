@@ -16,7 +16,7 @@ export class GroupsService {
   }
 
   public createGroup(name: string, desc: string) {
-    this.http.post('https://pr0jectzer0.ml/api/group' + '?token=' + this.auth.getToken(), {'name': name, 'beschreibung': desc});
+    this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {'name': name, 'beschreibung': desc});
   }
 
   public getGroups(): Observable<Group[]> {
