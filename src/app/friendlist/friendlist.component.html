@@ -21,6 +21,14 @@
         </div>
       </div>
       <div [@body]="body" id="groups" *ngIf="isGroupsSelected">
+        <div *ngFor="let group of groups">
+          <div class="p-2 clearfix">
+            <div class="float-left">
+              <p class="chat" [routerLink]="['/group-profile', group.id]">{{ group.name }}</p>
+            </div>
+          </div>
+          <hr/>
+        </div>
       </div>
     </div>
     <div class="pos" *ngIf="foundedUsers.length != 0 && state == 'opened'">

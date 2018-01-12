@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {GroupsService} from "../../shared/groups.service";
-import {GroupModule} from "../../shared/group.module";
+import {Group} from "../../shared/group.model";
 import {Member} from "../../shared/member.model";
 
 @Component({
@@ -12,7 +12,7 @@ import {Member} from "../../shared/member.model";
 export class GroupMemberlistComponent implements OnInit {
 
   id: number;
-  group = new GroupModule(0, '', '', '', '', []);
+  group = new Group(0, '', '', '', '', []);
   users: Member[];
 
   constructor(private groupService: GroupsService, private route: ActivatedRoute) { }

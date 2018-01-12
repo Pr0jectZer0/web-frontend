@@ -68,7 +68,7 @@ import { NoteComponent } from './notes/note/note.component';
     UsersService,
     DisableService,
     LibraryService,
-    GroupsService
+    GroupsService,
     PusherService,
     NotesService
   ],

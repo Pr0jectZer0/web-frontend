@@ -1,7 +1,6 @@
-import {User} from "./user.model";
 import {Member} from "./member.model";
 
-export class GroupModule {
+export class Group {
   constructor(public id: number,
               public name: string,
               public beschreibung: string,

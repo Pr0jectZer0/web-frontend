@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GroupsService} from "../../shared/groups.service";
 import {ActivatedRoute, Params} from "@angular/router";
-import {GroupModule} from "../../shared/group.module";
+import {Group} from "../../shared/group.model";
 import {AuthService} from "../../auth/auth.service";
 
 @Component({
@@ -12,8 +12,8 @@ import {AuthService} from "../../auth/auth.service";
 export class GroupProfileComponent implements OnInit {
 
   id: number;
-  group = new GroupModule(1, '', '', '', '', []);
-  groups: GroupModule[];
+  group = new Group(1, '', '', '', '', []);
+  groups: Group[];
 
   constructor(private groupService: GroupsService, private route: ActivatedRoute, private auth: AuthService) {
   }

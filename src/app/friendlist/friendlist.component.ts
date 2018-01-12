@@ -7,7 +7,7 @@ import { User } from '../shared/user.model';
 import {UsersService} from '../shared/users.service';
 import {Router} from '@angular/router';
 import {GroupsService} from "../shared/groups.service";
-import {GroupModule} from "../shared/group.module";
+import {Group} from "../shared/group.model";
 
 @Component({
   selector: 'app-friendlist',
@@ -60,6 +60,7 @@ export class FriendlistComponent implements OnInit {
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
   users: User[];
+  groups: Group[];
 
   constructor(private disableService: DisableService,
               private http: HttpClient,
@@ -83,6 +84,7 @@ export class FriendlistComponent implements OnInit {
     });
 
     this.updateFriends();
+    this.updateGroups();
   }
 
   onClicked() {
@@ -133,6 +135,12 @@ export class FriendlistComponent implements OnInit {
         this.friends = data['friends'];
       });
     this.error = "Freund hinzufügen";
+  }
+
+  updateGroups() {
+    this.groupService.getGroups().subscribe((data) => {
+      this.groups = data['groups'];
+    });
   }
 
   onGroupsView() {
