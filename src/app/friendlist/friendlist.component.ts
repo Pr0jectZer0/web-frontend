@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {DisableService} from '../shared/disable.service';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {HttpClient} from '@angular/common/http';
-import {AuthService} from '../auth/auth.service';
-import {User} from '../shared/user.model';
+import { Component, OnInit } from '@angular/core';
+import { DisableService } from '../shared/disable.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../shared/user.model';
 import {UsersService} from '../shared/users.service';
 import {Router} from '@angular/router';
 import {GroupsService} from "../shared/groups.service";
@@ -24,8 +24,8 @@ import {GroupModule} from "../shared/group.module";
     trigger('body', [
       state('in', style({width: 120, transform: 'translateX(0)', opacity: 1})),
       transition('void => *', [
-        style({opacity: 0}),
-        animate(300, style({opacity: 1}))
+        style({ opacity: 0 }),
+        animate(300, style({ opacity: 1 }))
       ])
     ]),
   ]
@@ -35,7 +35,7 @@ export class FriendlistComponent implements OnInit {
   set userid(event: Event) {
     this.foundedUsers = [];
 
-    if ((<HTMLInputElement>event.target).value.length >= 3) {
+    if((<HTMLInputElement>event.target).value.length >= 3) {
       for (let user of this.users) {
         if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
           this.friends.indexOf(user) < 0 &&
@@ -60,7 +60,6 @@ export class FriendlistComponent implements OnInit {
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
   users: User[];
-  groups: GroupModule[];
 
   constructor(private disableService: DisableService,
               private http: HttpClient,
@@ -73,7 +72,7 @@ export class FriendlistComponent implements OnInit {
   ngOnInit() {
     this.disableService.disable.subscribe(
       data => {
-        if (data) {
+        if(data) {
           this.state = 'closed';
         }
       }
@@ -84,11 +83,10 @@ export class FriendlistComponent implements OnInit {
     });
 
     this.updateFriends();
-
   }
 
   onClicked() {
-    if (this.state == 'closed') {
+    if(this.state == 'closed') {
       this.state = 'opened';
     }
   }
@@ -103,11 +101,11 @@ export class FriendlistComponent implements OnInit {
         }, () => {
           this.error = "Freund bereits vorhanden";
         }
-      );
+    );
   }
 
   deleteFriend(id: number) {
-    this.http.delete('https://pr0jectzer0.ml/api/friend/remove/' + id + '?token=' + this.auth.getToken()).subscribe(
+    this.http.delete('https://pr0jectzer0.ml/api/friend/remove/'+ id +'?token=' + this.auth.getToken()).subscribe(
       () => {
         this.updateFriends();
       }
@@ -117,13 +115,13 @@ export class FriendlistComponent implements OnInit {
   openChat(id: number) {
     this.http.get('https://pr0jectzer0.ml/api/chatroom/' + id + '?token=' + this.auth.getToken()).subscribe(
       data => {
-        this.router.navigate(['/chat', data['chatroom']],);
+        this.router.navigate(['/chat', data['chatroom']], );
       }
     );
   }
 
   onFriendsView() {
-    if (!this.isFriendsSelected) {
+    if(!this.isFriendsSelected) {
       this.isGroupsSelected = false;
       this.isFriendsSelected = true;
     }
@@ -138,15 +136,15 @@ export class FriendlistComponent implements OnInit {
   }
 
   onGroupsView() {
-    if (!this.isGroupsSelected) {
+    if(!this.isGroupsSelected) {
       this.isFriendsSelected = false;
       this.isGroupsSelected = true;
     }
   }
 
-  weAreFriends(user: User): boolean {
-    for (let friend of this.friends) {
-      if (friend.id == user.id) {
+  weAreFriends(user: User):boolean {
+    for(let friend of this.friends) {
+      if(friend.id == user.id) {
         return true;
       }
     }

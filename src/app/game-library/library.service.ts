@@ -1,9 +1,8 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../auth/auth.service";
 import {Game} from "../shared/game.module";
 import {Publisher} from "../shared/publisher.model";
-import {Subject} from 'rxjs/Subject';
 import {Genre} from "../shared/genre.module";
 import {Observable} from 'rxjs/Observable';
 

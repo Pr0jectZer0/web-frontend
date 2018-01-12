@@ -15,13 +15,15 @@ import {GroupMemberlistComponent} from './groups/group-memberlist/group-memberli
 import {GroupForumComponent} from "./groups/group-forum/group-forum.component";
 import {GroupForumPostComponent} from "./groups/group-forum-post/group-forum-post.component";
 import {GroupCreateComponent} from "./groups/group-create/group-create.component";
+import {NotesComponent} from './notes/notes.component';
+import {NoteComponent} from './notes/note/note.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
   {
-    path: 'library', component: GameLibraryComponent, children: [
+    path: 'library', component: GameLibraryComponent, canActivate: [AuthGuard], children: [
     {path: ':id', component: GameDetailComponent},
   ]
   },
@@ -32,6 +34,8 @@ const appRoutes: Routes = [
   {path: 'group-memberlist/:id', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
   {path: 'group-create', component: GroupCreateComponent, canActivate: [AuthGuard]},
+  { path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
+  { path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
   {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

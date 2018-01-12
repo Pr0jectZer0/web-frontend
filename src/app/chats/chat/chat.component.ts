@@ -15,7 +15,7 @@ export class ChatComponent implements OnInit {
     ' 😁 ', ' 😂 '
   ];
   chatid: number;
-  isEmojiClicked: false;
+  isEmojiClicked: boolean = false;
   message: string = "";
   messages: {chatroom_id: number, created_at: string, id: number, message: string, updated_at: string, user: User, user_id: number}[];
   channel: any;
