@@ -3,10 +3,13 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../auth/auth.service";
 import {Observable} from "rxjs/Observable";
 import {Group} from "./group.model";
+import {User} from "./user.model";
 
 
 @Injectable()
 export class GroupsService {
+
+  currentUser: User;
 
   constructor(private http: HttpClient, private auth: AuthService) {
   }
@@ -16,6 +19,7 @@ export class GroupsService {
   }
 
   public createGroup(name: string, desc: string) {
+    console.log(name + desc);
     this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {
       'name': name,
       'beschreibung': desc
@@ -31,8 +35,12 @@ export class GroupsService {
   }
 
   public leaveGroup(id: number) {
-    this.http.post('https://pr0jectzer0.ml/api/group/' + id + '/remove_user?token=' + this.auth.getToken(),{
-      id: 
+    this.http.get<User>('https://pr0jectzer0.ml/api/user?token=' + this.auth.getToken()).subscribe(data => {
+      this.currentUser = data['user'];
+      console.log(data);
+      this.http.post('https://pr0jectzer0.ml/api/group/' + id + '/remove_user?token=' + this.auth.getToken(), {
+        'id': this.currentUser.id.toString()
+      });
     });
   }
 
@@ -41,6 +49,10 @@ export class GroupsService {
   }
 
   public declineAccess() {
+
+  }
+
+  public getAllInvitations() {
 
   }
 }

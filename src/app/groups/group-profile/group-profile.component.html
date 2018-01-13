@@ -16,8 +16,8 @@
         </div>
         <!-- Verlassen Button -->
         <div class="row justify-content-center leave-row">
-          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
-          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button">Beitreten</button>
+          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>
@@ -66,14 +66,14 @@
           <!-- Groups Description  -->
           <div class="row" id="detail-row">
             <div class="card card-body">
-              <p>{{group.beschreibung}}</p>
+              <p >{{group.beschreibung}}</p>
             </div>
           </div>
         </div>
         <!-- Leave Button  -->
         <div class="row justify-content-center leave-row d-xl-none d-lg-none">
-          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
-          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button">Beitreten</button>
+          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>
