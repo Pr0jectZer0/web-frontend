@@ -55,4 +55,8 @@ export class GroupsService {
   public getAllInvitations() {
 
   }
+
+  public getAllGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>('https://pr0jectzer0.ml/api/groups?token=' + this.auth.getToken());
+  }
 }

@@ -17,6 +17,7 @@ import {GroupForumPostComponent} from "./groups/group-forum-post/group-forum-pos
 import {GroupCreateComponent} from "./groups/group-create/group-create.component";
 import {NotesComponent} from './notes/notes.component';
 import {NoteComponent} from './notes/note/note.component';
+import {CommunityComponent} from "./community/community.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
@@ -27,15 +28,16 @@ const appRoutes: Routes = [
     {path: ':id', component: GameDetailComponent},
   ]
   },
-  { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
-  { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
+  {path: 'chat', component: ChatsComponent, canActivate: [AuthGuard]},
+  {path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard]},
   {path: 'group-profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard]},
   {path: 'group-forum/:id', component: GroupForumComponent, canActivate: [AuthGuard]},
   {path: 'group-memberlist/:id', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post/:id', component: GroupForumPostComponent, canActivate: [AuthGuard]},
   {path: 'group-create', component: GroupCreateComponent, canActivate: [AuthGuard]},
-  { path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
-  { path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
+  {path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
+  {path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
+  {path: 'community', component: CommunityComponent, canActivate: [AuthGuard]},
   {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
@@ -44,4 +46,5 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
