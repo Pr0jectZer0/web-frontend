@@ -1,14 +1,21 @@
 <div class="container">
   <div class="row justify-content-center">
-   <div class="col-12 col-md-10">
-     <div class="card">
-       <h4 class="card-header">Community</h4>
-       <div class="card-body">
-         <div class="card col-12 entry" *ngFor="let group of groups">
-           <h3 class="link" (click)="groupClicked(group.id)">{{group.name}}</h3>
-         </div>
-       </div>
-     </div>
-   </div>
+    <div class="col-12 col-md-10">
+      <div class="card">
+        <h4 class="card-header">Community</h4>
+        <div class="card-body">
+          <h5 class="card-header">Meine Gruppen</h5>
+          <div class="card col-12 entry" *ngFor="let group of mygroups">
+            <h3 class="link" (click)="groupClicked(group.id)">{{group.name}}</h3>
+          </div>
+          <h5 class="card-header">Andere Gruppen</h5>
+          <div *ngFor="let group of groups">
+            <div class="card col-12 entry" *ngIf="!isMemberOfGroup(group.id)">
+              <h3 class="link" (click)="groupClicked(group.id)">{{group.name}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
