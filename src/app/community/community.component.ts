@@ -37,16 +37,6 @@ export class CommunityComponent implements OnInit {
   }
 
   public isMemberOfGroup(id: number): boolean {
-    let g: Group;
-    this.groupService.getGroup(id).subscribe(data => {
-      g = data['group'];
-      for (let m of g.users) {
-        if (m.id === this.user.id) {
-          console.log(g);
-          return true;
-        }
-      }
-    });
     return false;
   }
 
