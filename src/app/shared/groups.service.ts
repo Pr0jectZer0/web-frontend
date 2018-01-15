@@ -23,7 +23,7 @@ export class GroupsService {
     this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {
       'name': name,
       'beschreibung': desc
-    });
+    }).subscribe();
   }
 
   public getGroups(): Observable<Group[]> {
@@ -40,7 +40,7 @@ export class GroupsService {
       console.log(data);
       this.http.post('https://pr0jectzer0.ml/api/group/' + id + '/remove_user?token=' + this.auth.getToken(), {
         'id': this.currentUser.id.toString()
-      });
+      }).subscribe();
     });
   }
 
