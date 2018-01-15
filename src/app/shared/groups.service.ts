@@ -18,12 +18,11 @@ export class GroupsService {
     return this.http.get<Group>('https://pr0jectzer0.ml/api/group/' + id + '?token=' + this.auth.getToken());
   }
 
-  public createGroup(name: string, desc: string) {
-    console.log(name + desc);
-    this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {
+  public createGroup(name: string, desc: string): Observable<any> {
+    return this.http.post('https://pr0jectzer0.ml/api/group?token=' + this.auth.getToken(), {
       'name': name,
       'beschreibung': desc
-    }).subscribe();
+    });
   }
 
   public getGroups(): Observable<Group[]> {
