@@ -25,7 +25,13 @@ export class GroupCreateComponent implements OnInit {
   onCreateGroup(form: NgForm) {
     const name = form.value.name;
     const desc = form.value.desc;
-    this.groupService.createGroup(name, desc);
+    this.groupService.createGroup(name, desc).subscribe(data => {
+
+    });
+  }
+
+  updateGroups() {
+
   }
 
 }
