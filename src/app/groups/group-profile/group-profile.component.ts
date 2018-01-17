@@ -4,6 +4,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Group} from "../../shared/group.model";
 import {AuthService} from "../../auth/auth.service";
 import {User} from "../../shared/user.model";
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-group-profile',
@@ -37,6 +38,14 @@ export class GroupProfileComponent implements OnInit {
   }
 
   public isMember() {
+    this.groupService.getGroups().subscribe((data) => {
+      this.groups = data['groups'];
+      for(let group of this.groups) {
+        if(group.id == this.id) {
+          this.member = true;
+        }
+      }
+    });
   }
 
   public leaveGroup() {
@@ -48,6 +57,9 @@ export class GroupProfileComponent implements OnInit {
   public joinGroup() {
     this.groupService.joinGroup(this.id).subscribe(data => {
       this.updateGroup();
+    },
+    (error) => {
+      
     });
   }
 
