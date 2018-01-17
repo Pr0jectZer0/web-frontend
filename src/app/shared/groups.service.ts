@@ -29,17 +29,13 @@ export class GroupsService {
     return this.http.get<Group[]>('https://pr0jectzer0.ml/api/user/groups?token=' + this.auth.getToken());
   }
 
-  public joinGroup(id: number) {
-    this.http.get('https://pr0jectzer0.ml/api/group/' + id + '/request_access?token=' + this.auth.getToken());
+  public joinGroup(id: number): Observable<any> {
+    return this.http.get('https://pr0jectzer0.ml/api/group/' + id + '/request_access?token=' + this.auth.getToken());
   }
 
-  public leaveGroup(id: number) {
-    this.http.get<User>('https://pr0jectzer0.ml/api/user?token=' + this.auth.getToken()).subscribe(data => {
-      this.currentUser = data['user'];
-      console.log(data);
-      this.http.post('https://pr0jectzer0.ml/api/group/' + id + '/remove_user?token=' + this.auth.getToken(), {
-        'id': this.currentUser.id.toString()
-      }).subscribe();
+  public leaveGroup(id: number, userID: string): Observable<any> {
+    return this.http.post('https://pr0jectzer0.ml/api/group/' + id + '/remove_user?token=' + this.auth.getToken(), {
+      'id': userID
     });
   }
 
@@ -57,5 +53,13 @@ export class GroupsService {
 
   public getAllGroups(): Observable<Group[]> {
     return this.http.get<Group[]>('https://pr0jectzer0.ml/api/groups?token=' + this.auth.getToken());
+  }
+
+  public getUser(): Observable<User> {
+    return this.http.get<User>('https://pr0jectzer0.ml/api/user?token=' + this.auth.getToken());
+  }
+
+  public isMember(): Observable<Group[]> {
+    return this.getGroups();
   }
 }

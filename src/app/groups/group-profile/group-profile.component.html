@@ -16,8 +16,8 @@
         </div>
         <!-- Verlassen Button -->
         <div class="row justify-content-center leave-row">
-          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
-          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
+          <button *ngIf="member" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!member" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>
@@ -72,8 +72,8 @@
         </div>
         <!-- Leave Button  -->
         <div class="row justify-content-center leave-row d-xl-none d-lg-none">
-          <button *ngIf="isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
-          <button *ngIf="!isMember()" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
+          <button *ngIf="member" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!member" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>
