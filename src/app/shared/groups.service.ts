@@ -62,4 +62,8 @@ export class GroupsService {
   public isMember(): Observable<Group[]> {
     return this.getGroups();
   }
+
+  public getAllRequests(id: number): Observable<Request[]> {
+    return this.http.get<Request[]>('https://pr0jectzer0.ml/api/group/' + id + '/requests?token=' + this.auth.getToken());
+  }
 }
