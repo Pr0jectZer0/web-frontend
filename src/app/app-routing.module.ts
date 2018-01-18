@@ -18,6 +18,7 @@ import {GroupCreateComponent} from "./groups/group-create/group-create.component
 import {NotesComponent} from './notes/notes.component';
 import {NoteComponent} from './notes/note/note.component';
 import {CommunityComponent} from "./community/community.component";
+import {NotificationComponent} from "./notification/notification.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   {path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
   {path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
   {path: 'community', component: CommunityComponent, canActivate: [AuthGuard]},
+  {path: 'notification', component: NotificationComponent, canActivate: [AuthGuard]},
   {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];

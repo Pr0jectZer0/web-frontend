@@ -62,7 +62,6 @@ export class GroupProfileComponent implements OnInit {
     if (this.request === false) {
       this.request = true;
       this.groupService.joinGroup(this.id).subscribe(data => {
-          console.log('gesendet');
           this.updateGroup();
           this.request = true;
         },
@@ -81,13 +80,10 @@ export class GroupProfileComponent implements OnInit {
   }
 
   public requestOpen() {
-    console.log(this.request);
     this.groupService.getAllRequests(this.id).subscribe(data => {
       this.groupService.getUser().subscribe(user => {
         this.user = user['user'];
         for (let request of data['requests']) {
-          console.log(request);
-          console.log(user);
           if(request.id_user === this.user.id){
             console.log('test');
             this.request = true;
