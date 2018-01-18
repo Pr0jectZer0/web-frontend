@@ -104,3 +104,11 @@ hr {
 .pos div:hover {
   background-color: #DC143C;
 }
+
+.chat {
+  cursor: pointer;
+}
+
+.chat:hover {
+  color: #DC143C;
+}

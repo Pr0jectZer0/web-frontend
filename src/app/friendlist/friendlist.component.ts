@@ -111,7 +111,7 @@ export class FriendlistComponent implements OnInit {
   openChat(id: number) {
     this.http.get('https://pr0jectzer0.ml/api/chatroom/' + id + '?token=' + this.auth.getToken()).subscribe(
       data => {
-        this.router.navigate(['/chat', data['chatroom']], );
+        this.router.navigate(['/chat', data['chatroom']] );
       }
     );
   }
