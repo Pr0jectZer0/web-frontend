@@ -30,6 +30,7 @@ import { NotesComponent } from './notes/notes.component';
 import {NotesService} from './notes/notes.service';
 import { NoteComponent } from './notes/note/note.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import {CalendarService} from './calendar/calendar.service';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     DisableService,
     LibraryService,
     PusherService,
-    NotesService
+    NotesService,
+    CalendarService
   ],
   bootstrap: [AppComponent]
 })

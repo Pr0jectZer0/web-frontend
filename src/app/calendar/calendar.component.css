@@ -1,10 +1,18 @@
 .container {
   margin-top: 15px;
+  height: calc(100% - 145px);
+}
+
+.row {
+  height: 100%;
 }
 
 .schedule {
   border: 1px solid rgba(0,0,0,.2);
-  padding:10px;
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  padding: 10px 10px 30px;
 }
 
 .calendar-header {
@@ -51,4 +59,13 @@ textarea:focus, input:focus  {
   outline: none;
   border-color: #DC143C;
   box-shadow: none;
+}
+
+h6 {
+  margin-bottom: -5px;
+}
+
+span {
+  font-size: 12px;
+  padding-bottom: 5px;
 }

@@ -67,45 +67,43 @@
     </div>
 
 
-    <div class="col-4 schedule">
-      <div>
-        <div *ngIf="!isClicked">
-          <h4>Termine</h4>
-          <div>
-            <h6>Termin name: </h6>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-              et dolore magna aliquyam erat, sed diam voluptua.</p>
+    <div class="col-4">
+      <div class="schedule">
+        <div>
+          <div *ngIf="!isClicked">
+            <h4>Termine</h4>
+            <div *ngFor="let date of dates">
+              <h6>{{ date.titel }}: </h6>
+              <span>({{ date.start_datum }} - {{ date.end_datum }})</span>
+              <p>{{ date.beschreibung }}</p>
+            </div>
           </div>
-          <div>
-            <h6>Termin name: </h6>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-              et dolore magna aliquyam erat, sed diam voluptua.</p>
-          </div>
-        </div>
 
-        <div *ngIf="isClicked">
-          <form>
-            <div class="form-group">
-              <label for="terminnamen">Terminname: </label>
-              <input type="text" class="form-control" id="terminnamen" placeholder="Terminname">
-            </div>
-            <div class="form-group">
-              <label for="beschreibung">Beschreibung: </label>
-              <textarea type="text" class="form-control" id="beschreibung" placeholder="Beschreibung"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="startdatum">Startdatum: </label>
-              <input type="datetime-local" class="form-control" id="startdatum" placeholder="Startdatum">
-            </div>
-            <div class="form-group">
-              <label for="enddatum">Enddatum: </label>
-              <input type="datetime-local" class="form-control" id="enddatum" placeholder="Enddatum">
-            </div>
-          </form>
+          <div *ngIf="isClicked">
+            <form [formGroup]="addForm" (ngSubmit)="onAdd()">
+              <div class="form-group">
+                <label for="terminnamen">Terminname: </label>
+                <input name="name" formControlName="name" type="text" class="form-control" id="terminnamen" placeholder="Terminname">
+              </div>
+              <div class="form-group">
+                <label for="beschreibung">Beschreibung: </label>
+                <textarea name="description" formControlName="description" type="text" class="form-control" id="beschreibung" placeholder="Beschreibung"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="startdatum">Startdatum: </label>
+                <input name="startdate" formControlName="startdate" type="datetime-local" class="form-control" id="startdatum" placeholder="Startdatum">
+              </div>
+              <div class="form-group">
+                <label for="enddatum">Enddatum: </label>
+                <input name="enddate" formControlName="enddate" type="datetime-local" class="form-control" id="enddatum" placeholder="Enddatum">
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">STEFAN KLICK IHN</button>
+            </form>
+          </div>
         </div>
-        <div class="add-button" (click)="isClicked = !isClicked">
-          <i class="fa fa-plus-circle" aria-hidden="true"></i>
-        </div>
+      </div>
+      <div class="add-button" (click)="isClicked = !isClicked">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
       </div>
     </div>
   </div>
