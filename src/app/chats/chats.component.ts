@@ -10,10 +10,10 @@ import {PusherService} from '../shared/pusher.service';
 export class ChatsComponent implements OnInit {
   chats: {id: number, name: string, anzahl: number}[] = [];
 
-  constructor(private http: HttpClient, private p: PusherService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.chats.push({id: 1, name:"Hallo", anzahl: 4});
+    this.chats.push({id: 17, name:"Hallo", anzahl: 4});
   }
 
 }

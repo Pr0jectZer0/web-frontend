@@ -25,3 +25,8 @@ a:not([href]):not([tabindex]) {
 a:hover, a:not([href]):not([tabindex]):hover {
   color: #9a0e2a;
 }
+
+input:focus, textarea:focus {
+  outline: 0;
+  box-shadow: none;
+}
