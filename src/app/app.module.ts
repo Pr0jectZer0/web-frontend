@@ -29,6 +29,7 @@ import {PusherService} from './shared/pusher.service';
 import { NotesComponent } from './notes/notes.component';
 import {NotesService} from './notes/notes.service';
 import { NoteComponent } from './notes/note/note.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { NoteComponent } from './notes/note/note.component';
     GroupForumPostComponent,
     NotesComponent,
     NoteComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
