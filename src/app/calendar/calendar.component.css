@@ -1,8 +1,8 @@
-.container-fluid {
+.container {
   margin-top: 15px;
 }
 
-.col-4 div{
+.schedule {
   border: 1px solid rgba(0,0,0,.2);
   padding:10px;
 }
@@ -26,4 +26,18 @@ tbody tr {
 
 .table-bordered, .table thead th, .table-bordered td, .table-bordered th {
   border-color: rgba(0,0,0,.2);
+}
+
+.add-button {
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 12px);
+  cursor: pointer;
+}
+
+textarea {
+  height: 200px;
+  resize: none;
 }

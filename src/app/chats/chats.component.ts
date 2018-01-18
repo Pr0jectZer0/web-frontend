@@ -13,7 +13,7 @@ export class ChatsComponent implements OnInit {
   constructor(private http: HttpClient, private p: PusherService) { }
 
   ngOnInit() {
-    this.chats.push({id: 1, name:"Hallo", anzahl: 4});
+    this.chats.push({id: 1, name: 'Hallo', anzahl: 4});
   }
 
 }
