@@ -1,0 +1,71 @@
+.container {
+  margin-top: 15px;
+  height: calc(100% - 145px);
+}
+
+.row {
+  height: 100%;
+}
+
+.schedule {
+  border: 1px solid rgba(0,0,0,.2);
+  overflow: hidden;
+  overflow-y: auto;
+  height: 100%;
+  padding: 10px 10px 30px;
+}
+
+.calendar-header {
+  height: 25px;
+  border: 1px solid rgba(0,0,0,.2);
+  text-align: center;
+  line-height: 25px;
+}
+
+tbody tr {
+  line-height: 25px;
+  min-height: 100px;
+  height: 100px;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table-bordered, .table thead th, .table-bordered td, .table-bordered th {
+  border-color: rgba(0,0,0,.2);
+}
+
+.add-button {
+  text-align: center;
+  font-size: 30px;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 12px);
+  cursor: pointer;
+}
+
+input {
+  border-radius: 0;
+}
+
+textarea {
+  border-radius: 0;
+  height: 200px;
+  resize: none;
+}
+
+textarea:focus, input:focus  {
+  outline: none;
+  border-color: #DC143C;
+  box-shadow: none;
+}
+
+h6 {
+  margin-bottom: -5px;
+}
+
+span {
+  font-size: 12px;
+  padding-bottom: 5px;
+}

@@ -16,6 +16,7 @@ import {GroupForumComponent} from "./groups/group-forum/group-forum.component";
 import {GroupForumPostComponent} from "./groups/group-forum-post/group-forum-post.component";
 import {NotesComponent} from './notes/notes.component';
 import {NoteComponent} from './notes/note/note.component';
+import {CalendarComponent} from './calendar/calendar.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
   { path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
   { path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
+  { path: 'calendar' , component: CalendarComponent, canActivate: [AuthGuard]},
   {path: 'not-found', component: ErrorPageComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
