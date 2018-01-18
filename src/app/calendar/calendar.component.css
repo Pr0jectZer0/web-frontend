@@ -7,12 +7,6 @@
   padding:10px;
 }
 
-.calendar {
-  margin-top: 15px;
-  margin-bottom: 0;
-  border: 1px solid rgba(0,0,0,.2);
-}
-
 .calendar-header {
   height: 25px;
   border: 1px solid rgba(0,0,0,.2);
@@ -28,4 +22,8 @@ tbody tr {
 
 .table {
   margin-bottom: 0;
+}
+
+.table-bordered, .table thead th, .table-bordered td, .table-bordered th {
+  border-color: rgba(0,0,0,.2);
 }
