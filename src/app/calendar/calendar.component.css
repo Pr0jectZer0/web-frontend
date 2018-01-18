@@ -37,7 +37,18 @@ tbody tr {
   cursor: pointer;
 }
 
+input {
+  border-radius: 0;
+}
+
 textarea {
+  border-radius: 0;
   height: 200px;
   resize: none;
+}
+
+textarea:focus, input:focus  {
+  outline: none;
+  border-color: #DC143C;
+  box-shadow: none;
 }
