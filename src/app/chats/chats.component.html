@@ -4,7 +4,7 @@
       <div class="row chat-wrap" *ngFor="let chat of chats">
         <div class="col-9 chat-left">
           <div class="chat">
-            <h1>
+            <h1 [routerLink]="['/chat', chat.id]">
               {{ chat.name }}
             </h1>
           </div>
