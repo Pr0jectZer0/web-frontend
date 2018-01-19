@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CalendarService} from './calendar.service';
 import {Calendar} from './calendar.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DateModel} from '../shared/datemodel.model';
 
 @Component({
   selector: 'app-calendar',
@@ -12,10 +13,13 @@ export class CalendarComponent implements OnInit {
   addForm: FormGroup;
   isClicked = false;
   dates: Calendar[];
+  date: DateModel;
+  calendarWeeks: { weekday: number, day: number }[][];
 
   constructor(private services: CalendarService) { }
 
   ngOnInit() {
+    this.date = new DateModel(Date.now());
     this.addForm = new FormGroup({
       'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
       'description': new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -26,6 +30,8 @@ export class CalendarComponent implements OnInit {
     this.services.getSchedules().subscribe((data) => {
       this.dates = data['dates'];
     });
+
+    this.calendarWeeks = this.date.getCalendarWeek();
   }
 
   onAdd() {
