@@ -1,9 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <div class="calendar">
-        <div class="calendar-header">November 2017</div>
-        <table class="table table-bordered">
+        <div class="calendar-header">
+          <i class="fa fa-angle-left" aria-hidden="true" (click)="swipeMonth(0)"></i>
+          <div>{{ date.getMonth() }}  {{ date.getYear() }}</div>
+          <i class="fa fa-angle-right" aria-hidden="true" (click)="swipeMonth(1)"></i>
+        </div>
+        <table class="table table-bordered table-responsive">
           <thead>
           <tr>
             <th scope="col">S</th>
@@ -16,64 +20,28 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-          </tr>
-          <tr>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-          </tr>
-          <tr>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td></td>
-            <td></td>
-          </tr>
+            <tr *ngFor="let week of calendarWeeks;">
+              <td *ngFor="let day of week">
+                <span *ngIf="day.day != 0" [ngClass]="{ color: day.day == today.getDate() && day.month == today.getMonth() && day.year == today.getFullYear() }">{{ day.day }}</span>
+                <span class="dot" *ngIf="haveAdate(day.day, day.month, day.year)"></span>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
 
 
-    <div class="col-4">
+    <div class="col-sm-12 col-md-4">
       <div class="schedule">
         <div>
           <div *ngIf="!isClicked">
             <h4>Termine</h4>
             <div *ngFor="let date of dates">
-              <h6>{{ date.titel }}: </h6>
+              <div class="clearfix">
+                <h6>{{ date.titel }}: </h6>
+                <i class="fa fa-trash" aria-hidden="true" (click)="onDelete(date.id)"></i>
+              </div>
               <span>({{ date.start_datum }} - {{ date.end_datum }})</span>
               <p>{{ date.beschreibung }}</p>
             </div>
@@ -97,12 +65,12 @@
                 <label for="enddatum">Enddatum: </label>
                 <input name="enddate" formControlName="enddate" type="datetime-local" class="form-control" id="enddatum" placeholder="Enddatum">
               </div>
-              <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">STEFAN KLICK IHN</button>
+              <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">Termin hinzufügen</button>
             </form>
           </div>
         </div>
       </div>
-      <div class="add-button" (click)="isClicked = !isClicked">
+      <div class="add-button" *ngIf="!onUpdated" (click)="isClicked = !isClicked">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CalendarService} from './calendar.service';
 import {Calendar} from './calendar.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DateModel} from '../shared/datemodel.model';
 
 @Component({
   selector: 'app-calendar',
@@ -10,12 +11,18 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CalendarComponent implements OnInit {
   addForm: FormGroup;
+  editForm: FormGroup;
   isClicked = false;
-  dates: Calendar[];
+  dates: Calendar[] = [];
+  date: DateModel;
+  today: Date;
+  calendarWeeks: { weekday: number, day: number, month: number, year: number }[][];
 
   constructor(private services: CalendarService) { }
 
   ngOnInit() {
+    this.date = new DateModel(Date.now());
+    this.today = new Date(Date.now());
     this.addForm = new FormGroup({
       'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
       'description': new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -23,6 +30,19 @@ export class CalendarComponent implements OnInit {
       'enddate': new FormControl('', Validators.required)
     });
 
+    this.editForm = new FormGroup({
+      'n': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'd': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      's': new FormControl('', Validators.required),
+      'e': new FormControl('', Validators.required)
+    });
+
+    this.updateSchedule();
+
+    this.calendarWeeks = this.date.getCalendarWeek();
+  }
+
+  updateSchedule() {
     this.services.getSchedules().subscribe((data) => {
       this.dates = data['dates'];
     });
@@ -47,5 +67,54 @@ export class CalendarComponent implements OnInit {
         })}, 250);
       }
     }
+  }
+
+  swipeMonth(direction: number) {
+    let month = this.date.date.getMonth();
+    let year = this.date.getYear();
+
+    if(!direction) {
+      if(month == 0) {
+        year--;
+        month = 11;
+      } else {
+        month--;
+      }
+
+      this.date = new DateModel(new Date(year, month, 1).getTime());
+      this.calendarWeeks = this.date.getCalendarWeek();
+    } else {
+      if(month == 11) {
+        year++;
+        month = 0;
+      } else {
+        month++;
+      }
+
+      this.date = new DateModel(new Date(year, month, 1).getTime());
+      this.calendarWeeks = this.date.getCalendarWeek();
+    }
+  }
+
+  haveAdate(day: number, month: number, year: number): boolean {
+    if(day != 0) {
+      for (let date of this.dates) {
+        let d = date.start_datum.split('-');
+        let tmp = d[2].split(' ');
+
+        if (parseInt(d[0]) == year && parseInt(d[1]) == month+1 && parseInt(tmp[0]) == day) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  onDelete(id: number) {
+    this.services.deleteSchedule(id);
+    setTimeout(() => {
+      this.updateSchedule();
+    }, 250);
   }
 }

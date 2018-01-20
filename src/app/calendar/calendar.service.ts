@@ -21,4 +21,17 @@ export class CalendarService {
       'start_datum': start
     }).subscribe();
   }
+
+  updateSchedule(id: number, title: string, description: string, start: string, end: string) {
+    this.http.put('https://pr0jectzer0.ml/api/date/' + id + '?token=' + this.auth.getToken(), {
+      'titel': title,
+      'beschreibung': description,
+      'end_datum': end,
+      'start_datum': start
+    }).subscribe();
+  }
+
+  deleteSchedule(id: number) {
+    this.http.delete('https://pr0jectzer0.ml/api/date/' + id + '?token=' + this.auth.getToken()).subscribe();
+  }
 }
