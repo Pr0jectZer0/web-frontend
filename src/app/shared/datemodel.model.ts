@@ -32,25 +32,29 @@ export class DateModel {
     return this.date.getDay();
   }
 
+  getDate(): number {
+    return this.date.getDate();
+  }
+
   getLastDay(): number {
     return new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
   }
 
-  getDays(): { weekday: number, day: number }[] {
-    let calendar: { weekday: number, day: number }[] = [];
+  getDays(): { weekday: number, day: number, month: number, year: number }[] {
+    let calendar: { weekday: number, day: number, month: number, year: number }[] = [];
     let lastday = this.getLastDay();
 
     for(let i = lastday; i > 0; i--) {
       let day = new Date(this.date.getFullYear(), this.date.getMonth(), i);
-      calendar.push({ weekday: day.getDay(), day: day.getDate() });
+      calendar.push({ weekday: day.getDay(), day: day.getDate(), month: this.date.getMonth(), year: this.date.getFullYear() });
     }
     return calendar.reverse();
   }
 
-  getCalendarWeek(): { weekday: number, day: number }[][] {
-    let calendarWeek: { weekday: number, day: number }[][] = [];
+  getCalendarWeek(): { weekday: number, day: number, month: number, year: number }[][] {
+    let calendarWeek: { weekday: number, day: number, month: number, year: number }[][] = [];
     let calendar = this.getDays();
-    let week: { weekday: number, day: number }[] = [];
+    let week: { weekday: number, day: number, month: number, year: number }[] = [];
 
     for(let i = 0; i < this.getLastDay();) {
       week = [];
@@ -59,13 +63,12 @@ export class DateModel {
           week.push(calendar[i]);
           i++;
         } else {
-          week.push({weekday: 0, day:0})
+          week.push({weekday: 0, day:0, month: this.date.getMonth(), year: this.date.getFullYear()})
         }
       }
       calendarWeek.push(week);
     }
 
-    console.log(calendarWeek);
     return calendarWeek;
   }
 }

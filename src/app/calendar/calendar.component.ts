@@ -12,14 +12,16 @@ import {DateModel} from '../shared/datemodel.model';
 export class CalendarComponent implements OnInit {
   addForm: FormGroup;
   isClicked = false;
-  dates: Calendar[];
+  dates: Calendar[] = [];
   date: DateModel;
-  calendarWeeks: { weekday: number, day: number }[][];
+  today: Date;
+  calendarWeeks: { weekday: number, day: number, month: number, year: number }[][];
 
   constructor(private services: CalendarService) { }
 
   ngOnInit() {
     this.date = new DateModel(Date.now());
+    this.today = new Date(Date.now());
     this.addForm = new FormGroup({
       'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
       'description': new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -53,5 +55,47 @@ export class CalendarComponent implements OnInit {
         })}, 250);
       }
     }
+  }
+
+  swipeMonth(direction: number) {
+    let month = this.date.date.getMonth();
+    let year = this.date.getYear();
+
+    if(!direction) {
+      if(month == 0) {
+        year--;
+        month = 11;
+      } else {
+        month--;
+      }
+
+      this.date = new DateModel(new Date(year, month, 1).getTime());
+      this.calendarWeeks = this.date.getCalendarWeek();
+    } else {
+      if(month == 11) {
+        year++;
+        month = 0;
+      } else {
+        month++;
+      }
+
+      this.date = new DateModel(new Date(year, month, 1).getTime());
+      this.calendarWeeks = this.date.getCalendarWeek();
+    }
+  }
+
+  haveAdate(day: number, month: number, year: number): boolean {
+    if(day != 0) {
+      for (let date of this.dates) {
+        let d = date.start_datum.split('-');
+        let tmp = d[2].split(' ');
+
+        if (parseInt(d[0]) == year && parseInt(d[1]) == month+1 && parseInt(tmp[0]) == day) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }
