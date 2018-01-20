@@ -11,6 +11,7 @@ import {DateModel} from '../shared/datemodel.model';
 })
 export class CalendarComponent implements OnInit {
   addForm: FormGroup;
+  editForm: FormGroup;
   isClicked = false;
   dates: Calendar[] = [];
   date: DateModel;
@@ -29,11 +30,22 @@ export class CalendarComponent implements OnInit {
       'enddate': new FormControl('', Validators.required)
     });
 
+    this.editForm = new FormGroup({
+      'n': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      'd': new FormControl('', [Validators.required, Validators.minLength(3)]),
+      's': new FormControl('', Validators.required),
+      'e': new FormControl('', Validators.required)
+    });
+
+    this.updateSchedule();
+
+    this.calendarWeeks = this.date.getCalendarWeek();
+  }
+
+  updateSchedule() {
     this.services.getSchedules().subscribe((data) => {
       this.dates = data['dates'];
     });
-
-    this.calendarWeeks = this.date.getCalendarWeek();
   }
 
   onAdd() {
@@ -97,5 +109,12 @@ export class CalendarComponent implements OnInit {
     }
 
     return false;
+  }
+
+  onDelete(id: number) {
+    this.services.deleteSchedule(id);
+    setTimeout(() => {
+      this.updateSchedule();
+    }, 250);
   }
 }

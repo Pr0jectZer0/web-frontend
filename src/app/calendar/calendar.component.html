@@ -38,7 +38,10 @@
           <div *ngIf="!isClicked">
             <h4>Termine</h4>
             <div *ngFor="let date of dates">
-              <h6>{{ date.titel }}: </h6>
+              <div class="clearfix">
+                <h6>{{ date.titel }}: </h6>
+                <i class="fa fa-trash" aria-hidden="true" (click)="onDelete(date.id)"></i>
+              </div>
               <span>({{ date.start_datum }} - {{ date.end_datum }})</span>
               <p>{{ date.beschreibung }}</p>
             </div>
@@ -67,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class="add-button" (click)="isClicked = !isClicked">
+      <div class="add-button" *ngIf="!onUpdated" (click)="isClicked = !isClicked">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
       </div>
     </div>

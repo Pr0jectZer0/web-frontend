@@ -83,6 +83,17 @@ span {
   padding-bottom: 5px;
 }
 
+.schedule div h6 {
+  float: left;
+}
+
+.schedule div i {
+  font-size: 18px;
+  padding-left: 5px;
+  cursor: pointer;
+  float: right;
+}
+
 td span {
   border: 0 solid black;
   padding: 3px;
