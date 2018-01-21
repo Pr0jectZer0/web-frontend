@@ -36,6 +36,7 @@ const appRoutes: Routes = [
   {path: 'group-forum/:id', component: GroupForumComponent, canActivate: [AuthGuard]},
   {path: 'group-memberlist/:id', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
   {path: 'group-forum-post/:id', component: GroupForumPostComponent, canActivate: [AuthGuard]},
+  {path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard]},
   { path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
   { path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
   {path: 'community', component: CommunityComponent},
