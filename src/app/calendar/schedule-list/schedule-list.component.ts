@@ -10,12 +10,13 @@ import {Router} from '@angular/router';
 })
 export class ScheduleListComponent implements OnInit {
   dates: Calendar[] = [];
+  shared: Calendar[] = [];
 
   constructor(private services: CalendarService, private router: Router) { }
 
   ngOnInit() {
     this.updateSchedule();
-    this.services.d.subscribe( data => {
+    this.services.d.subscribe( () => {
       this.updateSchedule();
     });
   }
@@ -24,6 +25,19 @@ export class ScheduleListComponent implements OnInit {
     this.services.getSchedules().subscribe((data) => {
       this.dates = data['dates'];
     });
+    this.services.getSharedSchedules().subscribe(data => {
+      this.shared = data['dates'];
+    })
+  }
+
+  checkIfOnDates(id: number): boolean {
+    for(let date of this.dates) {
+      if(date.id == id) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   onNavigate() {
@@ -32,6 +46,10 @@ export class ScheduleListComponent implements OnInit {
 
   onDelete(id: number) {
     this.services.deleteSchedule(id);
+  }
+
+  onLeave(id: number) {
+    this.services.leaveSchedule(id);
   }
 
   onEdit(id: number) {

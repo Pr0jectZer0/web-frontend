@@ -18,6 +18,10 @@ export class CalendarService {
     return this.http.get<Calendar[]>('https://pr0jectzer0.ml/api/dates/?token=' + this.auth.getToken());
   }
 
+  getSharedSchedules(): Observable<Calendar[]> {
+    return this.http.get<Calendar[]>('https://pr0jectzer0.ml/api/dates/shared?token=' + this.auth.getToken());
+  }
+
   addSchedule(title: string, description: string, start: string, end: string) {
     this.http.post('https://pr0jectzer0.ml/api/date/?token=' + this.auth.getToken(), {
       'titel': title,
@@ -44,6 +48,14 @@ export class CalendarService {
 
   deleteSchedule(id: number) {
     this.http.delete('https://pr0jectzer0.ml/api/date/' + id + '?token=' + this.auth.getToken()).subscribe(data => {
+      this.d.next(true);
+    });
+  }
+
+  leaveSchedule(id: number) {
+    this.http.post('https://pr0jectzer0.ml/api/date/' + id + '/remove_user?token=' + this.auth.getToken(), {
+      'id': this.auth.getID()
+    }).subscribe(data => {
       this.d.next(true);
     });
   }
