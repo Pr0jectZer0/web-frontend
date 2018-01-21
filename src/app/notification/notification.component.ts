@@ -6,6 +6,7 @@ import {Friendrequest} from "../shared/friendrequest.model";
 import {Group} from "../shared/group.model";
 import {Joinrequest} from "../shared/joinrequest.model";
 import {Grouprequest} from "../shared/grouprequest.model";
+import {Daterequest} from "../shared/daterequest.model";
 
 @Component({
   selector: 'app-notification',
@@ -21,6 +22,7 @@ export class NotificationComponent implements OnInit {
   groups: Group[];
   joinRequests: Joinrequest[];
   groupRequests: Grouprequest[];
+  dateRequests: Daterequest[];
 
   ngOnInit() {
     this.updateFriends();
@@ -86,7 +88,7 @@ export class NotificationComponent implements OnInit {
 
   public updateDate() {
     this.http.get('https://pr0jectzer0.ml/api/date/requests?token=' + this.auth.getToken()).subscribe(data => {
-
+      this.dateRequests = data['requests'];
     });
   }
 
