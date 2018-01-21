@@ -84,6 +84,25 @@ export class NotificationComponent implements OnInit {
     );
   }
 
+  public updateDate() {
+    this.http.get('https://pr0jectzer0.ml/api/date/requests?token=' + this.auth.getToken()).subscribe(data => {
+
+    });
+  }
+
+  public acceptDate(date: number) {
+    this.http.get('https://pr0jectzer0.ml/date/' + date + '/accept?token= ' + this.auth.getToken()).subscribe(data => {
+        this.updateDate();
+      }
+    );
+  }
+
+  public declineDate(date: number) {
+    this.http.get('https://pr0jectzer0.ml/api/date/' + date + '/decline?token= ' + this.auth.getToken()).subscribe(data => {
+        this.updateDate();
+      }
+    );
+  }
 
 
 }
