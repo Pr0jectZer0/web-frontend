@@ -1,0 +1,13 @@
+<h6>{{ schedule.titel }}</h6>
+<form>
+  <div class="row" *ngIf="foundedUsers.length != 0">
+    <span class="col-12">User auswählen:</span>
+    <div class="col-6" *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name">
+      {{ user.name }}
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="d-inline form-control" type="text" (input)="userid = $event" [value]="username" />
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="onAdd()">Hinzufügen</button>
+</form>

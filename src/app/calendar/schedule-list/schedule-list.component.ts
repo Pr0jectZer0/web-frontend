@@ -37,4 +37,8 @@ export class ScheduleListComponent implements OnInit {
   onEdit(id: number) {
     this.router.navigate(['/calendar/edit', id]);
   }
+
+  onShare(id: number) {
+    this.router.navigate(['/calendar/share', id]);
+  }
 }

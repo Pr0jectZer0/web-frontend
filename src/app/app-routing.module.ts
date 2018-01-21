@@ -20,6 +20,7 @@ import {CalendarComponent} from './calendar/calendar.component';
 import {ScheduleListComponent} from './calendar/schedule-list/schedule-list.component';
 import {ScheduleAddComponent} from './calendar/schedule-add/schedule-add.component';
 import {ScheduleEditComponent} from './calendar/schedule-edit/schedule-edit.component';
+import {ScheduleShareComponent} from './calendar/schedule-share/schedule-share.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/signin', pathMatch: 'full'},
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     path: 'calendar' , component: CalendarComponent, canActivate: [AuthGuard], children: [
       { path: '', component: ScheduleListComponent },
       { path: 'add', component: ScheduleAddComponent },
-      { path: 'edit/:id', component: ScheduleEditComponent }
+      { path: 'edit/:id', component: ScheduleEditComponent },
+      { path: 'share/:id', component: ScheduleShareComponent }
     ]
   },
   {path: 'not-found', component: ErrorPageComponent},

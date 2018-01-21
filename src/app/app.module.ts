@@ -34,6 +34,7 @@ import {CalendarService} from './calendar/calendar.service';
 import { ScheduleListComponent } from './calendar/schedule-list/schedule-list.component';
 import { ScheduleAddComponent } from './calendar/schedule-add/schedule-add.component';
 import { ScheduleEditComponent } from './calendar/schedule-edit/schedule-edit.component';
+import { ScheduleShareComponent } from './calendar/schedule-share/schedule-share.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { ScheduleEditComponent } from './calendar/schedule-edit/schedule-edit.co
     ScheduleListComponent,
     ScheduleAddComponent,
     ScheduleEditComponent,
+    ScheduleShareComponent,
   ],
   imports: [
     BrowserModule,

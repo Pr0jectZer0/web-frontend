@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CalendarService} from './calendar.service';
 import {Calendar} from './calendar.model';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DateModel} from '../shared/datemodel.model';
 
 @Component({
@@ -11,7 +10,6 @@ import {DateModel} from '../shared/datemodel.model';
 })
 export class CalendarComponent implements OnInit {
   dates: Calendar[] = [];
-  editForm: FormGroup;
   date: DateModel;
   today: Date;
   calendarWeeks: { weekday: number, day: number, month: number, year: number }[][];
