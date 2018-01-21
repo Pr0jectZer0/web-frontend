@@ -22,7 +22,7 @@ export class ScheduleShareComponent implements OnInit {
         if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
           this.foundedUsers.length <= 8 &&
           user.id != this.auth.getID() &&
-          !this.weAreFriends(user)) {
+          this.weAreFriends(user)) {
           this.foundedUsers.push(user);
         }
       }
@@ -33,7 +33,7 @@ export class ScheduleShareComponent implements OnInit {
 
   foundedUsers: User[] = [];
   _userid: number;
-  users: User[];
+  users: User[] = [];
   username: string = "";
   friends: Friend[];
   schedule: Calendar = new Calendar(0, 0, '', '', '', '', '', '', new User(0, '', 0, '', '', ''));
@@ -46,9 +46,11 @@ export class ScheduleShareComponent implements OnInit {
         this.schedule = data['date'];
       });
     });
-    this.usersService.getAllUsers().subscribe(data => {
-      this.users = data;
-    });
+    this.http.get<User[]>('https://pr0jectzer0.ml/api/users?token=' + this.auth.getToken()).subscribe(
+      data => {
+        this.users = data['users'];
+      }
+    );
 
     this.updateFriends();
   }
