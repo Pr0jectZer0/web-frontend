@@ -36,7 +36,7 @@ export class CalendarService {
       'beschreibung': description,
       'end_datum': end,
       'start_datum': start
-    }).subscribe( data => {
+    }).subscribe( () => {
       this.d.next(true);
       this.router.navigate(['/calendar']);
     });

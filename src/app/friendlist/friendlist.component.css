@@ -78,6 +78,10 @@ row {
   width: 84%;
 }
 
+#friend-footer button {
+  cursor: pointer;
+}
+
 hr {
   margin: 0;
 }
