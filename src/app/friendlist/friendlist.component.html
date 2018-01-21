@@ -31,16 +31,19 @@
         </div>
       </div>
     </div>
-    <div class="pos" *ngIf="foundedUsers.length != 0 && state == 'opened'">
+    <div class="pos" *ngIf="foundedUsers.length != 0 && state == 'opened' && isFriendsSelected">
       <div *ngFor="let user of foundedUsers" (click)="_userid = user.id; username = user.name">
         {{ user.name }}
       </div>
     </div>
     <hr/>
     <div id="friend-footer" class="p-2">
-      <div>
+      <div *ngIf="isFriendsSelected">
         <i class="d-inline fa fa-user-plus" aria-hidden="true" (click)="addFriend()"></i>
         <input [ngClass]="{deny: error !== 'Freund hinzufügen'}" class="d-inline form-control" type="text" [placeholder]="error" (input)="userid = $event" [value]="username" (keyup.enter)="addFriend()" />
+      </div>
+      <div *ngIf="isGroupsSelected">
+        <button class="btn btn-outline-secondary btn-block btn-sm" [routerLink]="['/group/create']">Gruppe erstellen</button>
       </div>
     </div>
   </div>

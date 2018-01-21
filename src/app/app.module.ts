@@ -35,6 +35,10 @@ import { CalendarComponent } from './calendar/calendar.component';
 import {CalendarService} from './calendar/calendar.service';
 import {CommunityComponent} from './community/community.component';
 import {NotificationComponent} from './notification/notification.component';
+import { ScheduleListComponent } from './calendar/schedule-list/schedule-list.component';
+import { ScheduleAddComponent } from './calendar/schedule-add/schedule-add.component';
+import { ScheduleEditComponent } from './calendar/schedule-edit/schedule-edit.component';
+import { ScheduleShareComponent } from './calendar/schedule-share/schedule-share.component';
 
 
 @NgModule({
@@ -60,6 +64,10 @@ import {NotificationComponent} from './notification/notification.component';
     CalendarComponent,
     NotificationComponent,
     CommunityComponent,
+    ScheduleListComponent,
+    ScheduleAddComponent,
+    ScheduleEditComponent,
+    ScheduleShareComponent,
   ],
   imports: [
     BrowserModule,

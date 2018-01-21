@@ -83,11 +83,11 @@ span {
   padding-bottom: 5px;
 }
 
-.schedule div h6 {
+div div h6 {
   float: left;
 }
 
-.schedule div i {
+div div i {
   font-size: 18px;
   padding-left: 5px;
   cursor: pointer;
@@ -98,44 +98,4 @@ td span {
   border: 0 solid black;
   padding: 3px;
   border-radius: 40px;
-}
-
-.color {
-  color: #DC143C;
-  font-weight: bold;
-}
-
-.calendar-header i {
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.calendar-header i:first-of-type {
-  padding-right: 5px;
-}
-
-.calendar-header i:last-of-type {
-  padding-left: 5px;
-}
-
-td span.dot {
-  height: 3px;
-  width: 3px;
-  background-color: #DC143C;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.calendar-header div {
-  font-size: inherit;
-  min-width: 200px !important;
-  display: inline-block;
-}
-
-@media (max-width: 390px) {
-  table {
-    display: block;
-  }
 }
