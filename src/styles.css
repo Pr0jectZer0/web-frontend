@@ -30,3 +30,8 @@ button:focus, .btn:focus {
   box-shadow: none;
   outline: 0;
 }
+
+input:focus, textarea:focus {
+  outline: 0;
+  box-shadow: none;
+}

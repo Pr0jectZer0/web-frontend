@@ -30,9 +30,11 @@ import {GroupsService} from "./shared/groups.service";
 import {GroupCreateComponent} from './groups/group-create/group-create.component';
 import {NotesComponent} from './notes/notes.component';
 import {NotesService} from './notes/notes.service';
-import {NoteComponent} from './notes/note/note.component';
-import {NotificationComponent} from './notification/notification.component';
+import { NoteComponent } from './notes/note/note.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import {CalendarService} from './calendar/calendar.service';
 import {CommunityComponent} from './community/community.component';
+import {NotificationComponent} from './notification/notification.component';
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import {CommunityComponent} from './community/community.component';
     GroupCreateComponent,
     NotesComponent,
     NoteComponent,
+    CalendarComponent,
     NotificationComponent,
     CommunityComponent,
   ],
@@ -74,7 +77,8 @@ import {CommunityComponent} from './community/community.component';
     LibraryService,
     GroupsService,
     PusherService,
-    NotesService
+    NotesService,
+    CalendarService
   ],
   bootstrap: [AppComponent]
 })

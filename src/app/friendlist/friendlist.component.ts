@@ -6,6 +6,7 @@ import { AuthService } from '../auth/auth.service';
 import { User } from '../shared/user.model';
 import {UsersService} from '../shared/users.service';
 import {Router} from '@angular/router';
+import {Friend} from '../shared/friend.model';
 import {GroupsService} from "../shared/groups.service";
 import {Group} from "../shared/group.model";
 
@@ -38,7 +39,6 @@ export class FriendlistComponent implements OnInit {
     if((<HTMLInputElement>event.target).value.length >= 3) {
       for (let user of this.users) {
         if ((user.name.toLocaleLowerCase()).indexOf(((<HTMLInputElement>event.target).value).toLocaleLowerCase()) >= 0 &&
-          this.friends.indexOf(user) < 0 &&
           this.foundedUsers.length <= 8 &&
           user.id != this.auth.getID() &&
           !this.weAreFriends(user)) {
@@ -51,7 +51,7 @@ export class FriendlistComponent implements OnInit {
   }
 
   foundedUsers: User[] = [];
-  friends: User[];
+  friends: Friend[];
   _userid: number;
   username: string = "";
   body: string = 'in';
@@ -130,7 +130,7 @@ export class FriendlistComponent implements OnInit {
   }
 
   updateFriends() {
-    this.http.get<User[]>('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken())
+    this.http.get<Friend[]>('https://pr0jectzer0.ml/api/friends?token=' + this.auth.getToken())
       .subscribe(data => {
         this.friends = data['friends'];
       });
@@ -152,7 +152,7 @@ export class FriendlistComponent implements OnInit {
 
   weAreFriends(user: User):boolean {
     for(let friend of this.friends) {
-      if(friend.id == user.id) {
+      if(friend.friend_user.id == user.id) {
         return true;
       }
     }
