@@ -22,8 +22,12 @@
                   </div>
                   <div class="col">
                     <div class="float-right">
-                      <button type="button" class="btn btn-outline-danger float-right" (click)="accept(f.id)">Annehmen</button>
-                      <button type="button" class="btn btn-outline-danger float-right">Ablehnen</button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptFriend(f.id)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineFriend(f.id)">
+                        Ablehnen
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -40,6 +44,27 @@
         </div>
         <div class="collapse" id="collapseGroups">
           <div class="card-body">
+            <div *ngFor="let g of groupRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{g.group.name}}</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptGroup(g.id_gruppe)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineGroup(g.id_gruppe)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-header">
