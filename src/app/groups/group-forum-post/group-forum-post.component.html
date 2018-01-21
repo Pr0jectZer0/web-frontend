@@ -17,10 +17,10 @@
         <div class="collapse" id="nav-collapse">
           <div class="card card-body" id="nav-list">
             <ul>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">
                 <li>Mitglieder</li>
               </a>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-forum/{{id}}">
                 <li>Forum</li>
               </a>
               <a style="cursor: pointer" class="clearfix" href="">
@@ -35,22 +35,36 @@
         <!-- Buttonbar -->
         <div class="row justify-content-center d-none d-lg-block d-xl-block" id="nav-btn-bar">
           <div class="btn-group" role="group" id="group-btn-bar">
-            <button type="button" class="btn btn-outline-danger">Mitglieder</button>
-            <button type="button" class="btn btn-outline-danger">Forum</button>
+            <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">Mitglieder</button>
+            <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-forum/{{id}}">Forum</button>
             <button type="button" class="btn btn-outline-danger">Notizen</button>
             <button type="button" class="btn btn-outline-danger">Termine</button>
           </div>
         </div>
         <div class="card-body">
-          <div class="row" id="top">
-            <div class="row" id="heading">
-              <div class="col-6"><h2 class="float-left">Beitragname</h2></div>
-              <div class="col-6 float-right"><a href="" class="float-right">Verlassen</a></div>
+          <div class="row" id="heading">
+            <div class="col-md-6"><h2 class="float-left">Beitragname</h2></div>
+            <div class="col-md-6 float-right"><a href="" class="float-right">Verlassen</a></div>
+          </div>
+          <div class="row justify-content-center post" id="post">
+            <div class="card post">
+              <div class="card-header">
+                <p>Autor</p>
+              </div>
+              <div class="card-body">
+                <p>
+
+                </p>
+              </div>
             </div>
-            <div class="row justify-content-center post" id="post">
-              <div class="card post">
+          </div>
+          <div class="row justify-content-center" id="comments">
+            <p class="float-left">Kommentare</p>
+            <div class="comment">
+              <div class="card">
                 <div class="card-header">
-                  <p>Autor</p>
+                  <p class="float-left">Autor</p>
+                  <p class="float-right">Datum</p>
                 </div>
                 <div class="card-body">
                   <p>
@@ -59,22 +73,23 @@
                 </div>
               </div>
             </div>
-            <div class="row justify-content-center" id="comments">
-              <div class="card">
-                <div class="card-header">
-                  <p>Kommentare</p>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="row" id="bottom">
-            <div class="row justify-content-center" id="input">
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                <span class="input-group-addon">.00</span>
-              </div>
-            </div>
+
+        </div>
+        <div class="row" id="input">
+          <div class="emojis float-left" *ngIf="isEmojiClicked">
+            <span *ngFor="let emoji of emojis" (click)="message = message + emoji">
+              {{ emoji }}
+            </span>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1" (click)="isEmojiClicked = !isEmojiClicked">
+              <i class="fa fa-frown-o" aria-hidden="true"></i>
+            </span>
+            <input type="text" class="form-control" [(ngModel)]="message" placeholder="Beitrag" aria-label="message" aria-describedby="basic-addon1">
+            <span class="input-group-addon">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </span>
           </div>
         </div>
       </div>

@@ -3,19 +3,21 @@
     <!-- Left Side -->
     <div class="col-md-6 justify-content-center d-none d-xl-block d-none d-lg-block d-xl-none">
       <div class="card" id="left">
-        <h3 class="card-header">Gruppenname</h3>
+        <h3 class="card-header">{{group.name}}</h3>
         <div class="card-body">
           <!-- Buttonbar -->
           <div class="btn-group" role="group" id="group-btn-bar">
-            <button type="button" class="btn btn-outline-danger">Mitglieder</button>
-            <button type="button" class="btn btn-outline-danger">Forum</button>
+            <button type="button" class="btn btn-outline-danger" routerLink="/group-profile/{{id}}">Übersicht</button>
+            <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">Mitglieder</button>
+            <button type="button" class="btn btn-outline-danger" routerLinkActive="active" routerLink="/group-forum/{{id}}">Forum</button>
             <button type="button" class="btn btn-outline-danger">Notizen</button>
             <button type="button" class="btn btn-outline-danger">Termine</button>
           </div>
         </div>
         <!-- Verlassen Button -->
         <div class="row justify-content-center leave-row">
-          <button type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="member" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!member" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>
@@ -27,7 +29,7 @@
         <!-- Header  -->
         <div class="card-header d-xl-none d-lg-none">
           <div class="float-left">
-            <h3>Gruppenname</h3>
+            <h3>{{group.name}}</h3>
           </div>
           <!-- Collapse Toggle  -->
           <div class="float-right">
@@ -41,10 +43,10 @@
         <div class="collapse" id="group-options">
           <div class="card card-body" id="options-collapse">
             <ul>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">
                 <li>Mitglieder</li>
               </a>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-forum/{{id}}">
                 <li>Forum</li>
               </a>
               <a style="cursor: pointer" class="clearfix" href="">
@@ -64,13 +66,14 @@
           <!-- Groups Description  -->
           <div class="row" id="detail-row">
             <div class="card card-body">
-
+              <p >{{group.beschreibung}}</p>
             </div>
           </div>
         </div>
         <!-- Leave Button  -->
         <div class="row justify-content-center leave-row d-xl-none d-lg-none">
-          <button type="button" class="btn btn-outline-danger leave-button">Verlassen</button>
+          <button *ngIf="member" type="button" class="btn btn-outline-danger leave-button" (click)="leaveGroup()">Verlassen</button>
+          <button *ngIf="!member" type="button" class="btn btn-outline-danger leave-button" (click)="joinGroup()">Beitreten</button>
         </div>
       </div>
     </div>

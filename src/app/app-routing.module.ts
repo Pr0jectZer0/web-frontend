@@ -14,8 +14,11 @@ import {GroupProfileComponent} from './groups/group-profile/group-profile.compon
 import {GroupMemberlistComponent} from './groups/group-memberlist/group-memberlist.component';
 import {GroupForumComponent} from "./groups/group-forum/group-forum.component";
 import {GroupForumPostComponent} from "./groups/group-forum-post/group-forum-post.component";
+import {GroupCreateComponent} from "./groups/group-create/group-create.component";
 import {NotesComponent} from './notes/notes.component';
 import {NoteComponent} from './notes/note/note.component';
+import {CommunityComponent} from "./community/community.component";
+import {NotificationComponent} from "./notification/notification.component";
 import {CalendarComponent} from './calendar/calendar.component';
 import {ScheduleListComponent} from './calendar/schedule-list/schedule-list.component';
 import {ScheduleAddComponent} from './calendar/schedule-add/schedule-add.component';
@@ -33,12 +36,15 @@ const appRoutes: Routes = [
   },
   { path: 'chat', component: ChatsComponent, canActivate: [AuthGuard] },
   { path: 'chat/:id', component: ChatComponent, canActivate: [AuthGuard] },
-  {path: 'group-profile', component: GroupProfileComponent, canActivate: [AuthGuard]},
-  {path: 'group-forum', component: GroupForumComponent, canActivate: [AuthGuard]},
-  {path: 'group-memberlist', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
-  {path: 'group-forum-post', component: GroupForumPostComponent, canActivate: [AuthGuard]},
+  {path: 'group-profile/:id', component: GroupProfileComponent, canActivate: [AuthGuard]},
+  {path: 'group-forum/:id', component: GroupForumComponent, canActivate: [AuthGuard]},
+  {path: 'group-memberlist/:id', component: GroupMemberlistComponent, canActivate: [AuthGuard]},
+  {path: 'group-forum-post/:id', component: GroupForumPostComponent, canActivate: [AuthGuard]},
+  {path: 'group/create', component: GroupCreateComponent, canActivate: [AuthGuard]},
   { path: 'notes', component: NotesComponent, canActivate: [AuthGuard]},
   { path: 'notes/:id', component: NoteComponent, canActivate: [AuthGuard]},
+  {path: 'community', component: CommunityComponent},
+  {path: 'notification', component: NotificationComponent},
   {
     path: 'calendar' , component: CalendarComponent, canActivate: [AuthGuard], children: [
       { path: '', component: ScheduleListComponent },
@@ -55,4 +61,5 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+      <div class="card">
+        <h4 class="card-header">Benachrichtigungen</h4>
+        <div class="card-header">
+          <h4 class="float-left">Freundschaftsanfragen</h4>
+          <button class="btn btn-outline-danger float-right" type="button" data-toggle="collapse"
+                  data-target="#collapseFriends" aria-expanded="false" aria-controls="collapseFriends">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseFriends">
+          <div class="card-body">
+            <div *ngFor="let f of friendRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{f.user.name}}</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptFriend(f.id)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineFriend(f.id)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-header">
+          <h4 class="float-left">Gruppenanfragen</h4>
+          <button class="btn btn-outline-danger float-right" type="button" data-toggle="collapse"
+                  data-target="#collapseGroups" aria-expanded="false" aria-controls="collapseFriends">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseGroups">
+          <div class="card-body">
+            <div *ngFor="let g of groupRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{g.group.name}}</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptGroup(g.id_gruppe)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineGroup(g.id_gruppe)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-header">
+          <h4 class="float-left">Beitrittsanfragen</h4>
+          <button class="btn btn-outline-danger float-right" type="button" data-toggle="collapse"
+                  data-target="#collapseJoins" aria-expanded="false" aria-controls="collapseFriends">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseJoins">
+          <div class="card-body">
+
+          </div>
+        </div>
+        <div class="card-header">
+          <h4 class="float-left">Terminanfragen</h4>
+          <button class="btn btn-outline-danger float-right" type="button" data-toggle="collapse"
+                  data-target="#collapseDate" aria-expanded="false" aria-controls="collapseFriends">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="collapse" id="collapseDate">
+          <div class="card-body">
+            <div *ngFor="let d of dateRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{d.titel}}</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptDate(d.id)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineDate(d.id)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

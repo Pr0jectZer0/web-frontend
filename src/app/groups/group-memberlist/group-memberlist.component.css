@@ -1,7 +1,7 @@
 .container {
   margin-top: 20px;
   margin-bottom: 15px;
-  height: calc(100% - 95px);
+  height: calc(100% - 95px - 35px);
 }
 
 .card {
@@ -91,5 +91,14 @@ td{
 
 .name{
   width: 40%;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.active{
+  outline: 0;
+  box-shadow: none;
 }
 
