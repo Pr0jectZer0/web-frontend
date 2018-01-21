@@ -3,8 +3,8 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="float-left d-none d-xl-block d-lg-block">Gruppenname - Mitglieder</h3>
-          <h4 class="float-left d-xl-none d-lg-none">Gruppenname</h4>
+          <h3 class="float-left d-none d-xl-block d-lg-block">{{group.name}} - Mitglieder</h3>
+          <h4 class="float-left d-xl-none d-lg-none">{{group.name}}</h4>
           <!-- Collapse Toggle  -->
           <div class="float-right d-xl-none d-lg-none">
             <button class="btn btn-outline-danger" type="button" data-toggle="collapse"
@@ -17,10 +17,10 @@
         <div class="collapse" id="collapse-navigation">
           <div class="card card-body" id="nav-list">
             <ul>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-memberlist/{{id}}">
                 <li>Mitglieder</li>
               </a>
-              <a style="cursor: pointer" class="clearfix" href="">
+              <a style="cursor: pointer" class="clearfix" routerLinkActive="active" routerLink="/group-forum/{{id}}">
                 <li>Forum</li>
               </a>
               <a style="cursor: pointer" class="clearfix" href="">
@@ -37,8 +37,9 @@
           <!-- Buttonbar -->
           <div class="row justify-content-center d-none d-lg-block d-xl-block">
             <div class="btn-group" role="group" id="group-btn-bar">
-              <button type="button" class="btn btn-outline-danger">Mitglieder</button>
-              <button type="button" class="btn btn-outline-danger">Forum</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-profile/{{id}}">Übersicht</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-memberlist/{{id}}">Mitglieder</button>
+              <button type="button" class="btn btn-outline-danger" routerLink="/group-forum/{{id}}">Forum</button>
               <button type="button" class="btn btn-outline-danger">Notizen</button>
               <button type="button" class="btn btn-outline-danger">Termine</button>
             </div>
@@ -52,6 +53,13 @@
                 <td class="status-big d-none d-lg-table-cell d-xl-table-cell head-cell">Status</td>
                 <td class="status-small d-table-cell d-lg-none d-xl-none head-cell">Status</td>
                 <td class="since d-none d-lg-table-cell d-xl-table-cell head-cell">Mitglied seit</td>
+              </tr>
+              <tr *ngFor="let member of group.users">
+                <td class="name head-cell">{{member.user.name}}</td>
+                <td class="head-cell">{{member.rolle}}</td>
+                <td class="status-big d-none d-lg-table-cell d-xl-table-cell head-cell">UNDEFINED</td>
+                <td class="status-small d-table-cell d-lg-none d-xl-none head-cell">Status</td>
+                <td class="since d-none d-lg-table-cell d-xl-table-cell head-cell">{{member.created_at}}</td>
               </tr>
             </table>
           </div>

@@ -7,6 +7,8 @@ import { User } from '../shared/user.model';
 import {UsersService} from '../shared/users.service';
 import {Router} from '@angular/router';
 import {Friend} from '../shared/friend.model';
+import {GroupsService} from "../shared/groups.service";
+import {Group} from "../shared/group.model";
 
 @Component({
   selector: 'app-friendlist',
@@ -58,12 +60,15 @@ export class FriendlistComponent implements OnInit {
   isFriendsSelected: boolean = true;
   isGroupsSelected: boolean = false;
   users: User[];
+  groups: Group[];
 
   constructor(private disableService: DisableService,
               private http: HttpClient,
               private auth: AuthService,
               private usersService: UsersService,
-              private router: Router) { }
+              private router: Router,
+              private groupService: GroupsService) {
+  }
 
   ngOnInit() {
     this.disableService.disable.subscribe(
@@ -79,6 +84,7 @@ export class FriendlistComponent implements OnInit {
     });
 
     this.updateFriends();
+    this.updateGroups();
   }
 
   onClicked() {
@@ -111,7 +117,7 @@ export class FriendlistComponent implements OnInit {
   openChat(id: number) {
     this.http.get('https://pr0jectzer0.ml/api/chatroom/' + id + '?token=' + this.auth.getToken()).subscribe(
       data => {
-        this.router.navigate(['/chat', data['chatroom']] );
+        this.router.navigate(['/chat', data['chatroom']], );
       }
     );
   }
@@ -129,6 +135,12 @@ export class FriendlistComponent implements OnInit {
         this.friends = data['friends'];
       });
     this.error = "Freund hinzufügen";
+  }
+
+  updateGroups() {
+    this.groupService.getGroups().subscribe((data) => {
+      this.groups = data['groups'];
+    });
   }
 
   onGroupsView() {

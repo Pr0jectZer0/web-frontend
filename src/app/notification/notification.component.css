@@ -1,0 +1,24 @@
+.container {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-bottom: 60px;
+}
+
+.card {
+  border-radius: 0;
+  border-bottom: 2px solid #DC143C;
+}
+
+.card .card-header {
+  border-radius: 0;
+  border-bottom: 1px solid #DC143C;
+}
+
+.card .card-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.entry{
+  padding: 10px;
+}

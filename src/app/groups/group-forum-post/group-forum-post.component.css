@@ -1,7 +1,7 @@
 .container {
   margin-top: 20px;
   margin-bottom: 15px;
-  height: calc(100% - 95px);
+  height: calc(100% - 95px - 35px);
 }
 
 .card {
@@ -121,5 +121,31 @@ td{
 
 .post .card-header, .post .card-header p, #comments .card-header, #comments .card-header p{
   padding: 5px 20px 5px 20px;
+  margin: 0;
+}
+
+.emojis {
+  position: absolute;
+  bottom: 45px;
+  height: 160px;
+  width: 320px;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0,0,0,.25);
+}
+
+span {
+  cursor: pointer;
+}
+
+.comment, .comment .card{
+  width: 100%;
+}
+
+#input{
+  padding: 0 20px 0 20px;
+}
+
+.comment-heading{
+  padding: 10px 0 10px 0;
   margin: 0;
 }
