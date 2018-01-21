@@ -1,0 +1,16 @@
+<div>
+  <h4>Termine</h4>
+  <div *ngFor="let date of dates">
+    <div class="clearfix">
+      <h6>{{ date.titel }}: </h6>
+      <i class="fa fa-trash" aria-hidden="true" (click)="onDelete(date.id)"></i>
+      <i class="fa fa-cog" aria-hidden="true" (click)="onEdit(date.id)"></i>
+      <i class="fa fa-plus" aria-hidden="true" (click)="onShare(date.id)"></i>
+    </div>
+    <span>({{ date.start_datum }} - {{ date.end_datum }})</span>
+    <p>{{ date.beschreibung }}</p>
+  </div>
+</div>
+<div class="add-button">
+  <i class="fa fa-plus-circle" aria-hidden="true" (click)="onNavigate()"></i>
+</div>

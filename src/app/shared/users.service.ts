@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {User} from './user.model';
 import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs/Subject';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable()
 export class UsersService {
   users = new Subject<User[]>();
 
-  constructor(private http: HttpClient) {
-    this.http.get<User[]>('https://pr0jectzer0.ml/api/users').subscribe(
+  constructor(private auth: AuthService, private http: HttpClient) {
+    this.http.get<User[]>('https://pr0jectzer0.ml/api/users?token=' + this.auth.getToken()).subscribe(
       data => {
         this.users.next(data['users']);
       }

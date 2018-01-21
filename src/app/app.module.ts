@@ -31,6 +31,10 @@ import {NotesService} from './notes/notes.service';
 import { NoteComponent } from './notes/note/note.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import {CalendarService} from './calendar/calendar.service';
+import { ScheduleListComponent } from './calendar/schedule-list/schedule-list.component';
+import { ScheduleAddComponent } from './calendar/schedule-add/schedule-add.component';
+import { ScheduleEditComponent } from './calendar/schedule-edit/schedule-edit.component';
+import { ScheduleShareComponent } from './calendar/schedule-share/schedule-share.component';
 
 
 @NgModule({
@@ -53,6 +57,10 @@ import {CalendarService} from './calendar/calendar.service';
     NotesComponent,
     NoteComponent,
     CalendarComponent,
+    ScheduleListComponent,
+    ScheduleAddComponent,
+    ScheduleEditComponent,
+    ScheduleShareComponent,
   ],
   imports: [
     BrowserModule,
