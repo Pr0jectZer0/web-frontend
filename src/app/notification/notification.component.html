@@ -88,7 +88,27 @@
         </div>
         <div class="collapse" id="collapseDate">
           <div class="card-body">
-
+            <div *ngFor="let d of dateRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{d.titel}}</h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptDate(d.id)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineDate(d.id)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
