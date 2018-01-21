@@ -24,6 +24,7 @@
               <td *ngFor="let day of week">
                 <span *ngIf="day.day != 0" [ngClass]="{ color: day.day == today.getDate() && day.month == today.getMonth() && day.year == today.getFullYear() }">{{ day.day }}</span>
                 <span class="dot" *ngIf="haveAdate(day.day, day.month, day.year)"></span>
+                <span class="dot green" *ngIf="haveAshared(day.day, day.month, day.year)"></span>
               </td>
             </tr>
           </tbody>
