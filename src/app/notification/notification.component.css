@@ -22,3 +22,16 @@
 .entry{
   padding: 10px;
 }
+
+a:hover, button:hover{
+  cursor: pointer;
+}
+
+a{
+  color: #000000;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #DC143C;
+}

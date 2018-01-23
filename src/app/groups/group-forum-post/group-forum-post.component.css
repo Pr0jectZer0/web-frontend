@@ -149,3 +149,7 @@ span {
   padding: 10px 0 10px 0;
   margin: 0;
 }
+
+a:hover, button:hover{
+  cursor: pointer;
+}
