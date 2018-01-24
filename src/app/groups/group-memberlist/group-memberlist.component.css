@@ -102,3 +102,7 @@ button:focus {
   box-shadow: none;
 }
 
+a:hover, button:hover{
+  cursor: pointer;
+}
+
