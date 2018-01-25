@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-group-forum-post',
@@ -11,8 +11,8 @@ export class GroupForumPostComponent implements OnInit {
   emojis: string[] = [
     ' 😁 ', ' 😂 '
   ];
-  isEmojiClicked: false;
-  message: string = "";
+  isEmojiClicked = false;
+  message = '';
 
   id: number;
 
