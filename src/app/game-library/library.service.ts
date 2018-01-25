@@ -16,15 +16,15 @@ export class LibraryService {
   }
 
   public getGenres(): Observable<Genre[]> {
-    return this.http.get<Genre[]>('https://pr0jectzer0.ml/api/genre');
+    return this.http.get<Genre[]>('https://pr0jectzer0.ml/api/genre?token=' + this.auth.getToken());
   }
 
   public getPublisher(): Observable<Publisher[]> {
-    return this.http.get<Publisher[]>('https://pr0jectzer0.ml/api/publisher');
+    return this.http.get<Publisher[]>('https://pr0jectzer0.ml/api/publisher?token=' + this.auth.getToken());
   }
 
   public getGame(id: number): Observable<Game> {
-    return this.http.get<Game>('https://pr0jectzer0.ml/api/game/' + id);
+    return this.http.get<Game>('https://pr0jectzer0.ml/api/game/' + id + '?token=' + this.auth.getToken());
   }
 
 }
