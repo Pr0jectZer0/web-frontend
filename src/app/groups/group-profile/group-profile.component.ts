@@ -4,7 +4,7 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {Group} from "../../shared/group.model";
 import {AuthService} from "../../auth/auth.service";
 import {User} from "../../shared/user.model";
-import {forEach} from '@angular/router/src/utils/collection';
+import {Member} from '../../shared/member.model';
 
 @Component({
   selector: 'app-group-profile',
@@ -14,13 +14,13 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class GroupProfileComponent implements OnInit {
 
   id = 0;
-  group = new Group(1, '', '', '', '', []);
-  groups: Group[];
-  user: User;
+  user: User = new User(0, '', 0, '', '', '');
+  group = new Group(1, '', '', '', '', [new Member(1, 0, 0, '', '', '', this.user)]);
+  groups: Group[] = [this.group];
   member = false;
   request = false;
 
-  constructor(private groupService: GroupsService, private route: ActivatedRoute, private auth: AuthService) {
+  constructor(private groupService: GroupsService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class GroupProfileComponent implements OnInit {
   }
 
   public leaveGroup() {
-    this.groupService.leaveGroup(this.id, this.user.id.toString()).subscribe(data => {
+    this.groupService.leaveGroup(this.id, this.user.id.toString()).subscribe(() => {
       this.updateGroup();
     });
     this.member = false;
@@ -61,12 +61,9 @@ export class GroupProfileComponent implements OnInit {
   public joinGroup() {
     if (this.request === false) {
       this.request = true;
-      this.groupService.joinGroup(this.id).subscribe(data => {
+      this.groupService.joinGroup(this.id).subscribe(() => {
           this.updateGroup();
           this.request = true;
-        },
-        (error) => {
-
         });
     }
   }
@@ -83,10 +80,11 @@ export class GroupProfileComponent implements OnInit {
     this.groupService.getAllRequests(this.id).subscribe(data => {
       this.groupService.getUser().subscribe(user => {
         this.user = user['user'];
-        for (let request of data['requests']) {
-          if(request.id_user === this.user.id){
-            console.log('test');
-            this.request = true;
+        if(data['requests'] != undefined) {
+          for (let request of data['requests']) {
+            if (request.id_user === this.user.id) {
+              this.request = true;
+            }
           }
         }
       });
