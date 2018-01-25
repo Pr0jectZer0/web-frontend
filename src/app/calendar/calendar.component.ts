@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CalendarService} from './calendar.service';
 import {Calendar} from './calendar.model';
 import {DateModel} from '../shared/datemodel.model';
+import {User} from '../shared/user.model';
 
 @Component({
   selector: 'app-calendar',
@@ -9,10 +10,12 @@ import {DateModel} from '../shared/datemodel.model';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  dates: Calendar[] = [];
-  shared: Calendar[] = [];
-  date: DateModel;
-  today: Date;
+  dates: Calendar[] = [new Calendar(0, 0, '', '', '', '', '', '',
+    new User(0, '', 0, '', '', ''))];
+  shared: Calendar[] = [new Calendar(0, 0, '', '', '', '', '', '',
+    new User(0, '', 0, '', '', ''))];
+  date: DateModel = new DateModel(0);
+  today: Date = new Date();
   calendarWeeks: { weekday: number, day: number, month: number, year: number }[][];
 
   constructor(private services: CalendarService) { }
@@ -26,7 +29,9 @@ export class CalendarComponent implements OnInit {
       this.updateSchedule();
     });
     this.services.getSharedSchedules().subscribe(data => {
-      this.shared = data['dates'];
+      if(data['message'] == undefined) {
+        this.shared = data['dates'];
+      }
     });
 
     this.calendarWeeks = this.date.getCalendarWeek();
@@ -66,13 +71,15 @@ export class CalendarComponent implements OnInit {
   }
 
   haveAdate(day: number, month: number, year: number): boolean {
-    if(day != 0) {
+    if(day != 0 || this.dates != undefined) {
       for (let date of this.dates) {
         let d = date.start_datum.split('-');
-        let tmp = d[2].split(' ');
+        if(d[2] != undefined) {
+          let tmp = d[2].split(' ');
 
-        if (parseInt(d[0]) == year && parseInt(d[1]) == month+1 && parseInt(tmp[0]) == day) {
-          return true;
+          if (parseInt(d[0]) == year && parseInt(d[1]) == month + 1 && parseInt(tmp[0]) == day) {
+            return true;
+          }
         }
       }
     }
@@ -81,13 +88,15 @@ export class CalendarComponent implements OnInit {
   }
 
   haveAshared(day: number, month: number, year: number): boolean {
-    if(day != 0) {
+    if(day != 0 || this.shared != undefined)  {
       for (let date of this.shared) {
         let d = date.start_datum.split('-');
-        let tmp = d[2].split(' ');
+        if(d[2] != undefined) {
+          let tmp = d[2].split(' ');
 
-        if (parseInt(d[0]) == year && parseInt(d[1]) == month+1 && parseInt(tmp[0]) == day && !this.haveAdate(day, month, year)) {
-          return true;
+          if (parseInt(d[0]) == year && parseInt(d[1]) == month + 1 && parseInt(tmp[0]) == day && !this.haveAdate(day, month, year)) {
+            return true;
+          }
         }
       }
     }
