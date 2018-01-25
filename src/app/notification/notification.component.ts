@@ -50,8 +50,8 @@ export class NotificationComponent implements OnInit {
   }
 
   public updateJoins() {
-    this.http.get('https://pr0jectzer0.ml/api/groups/?token=' + this.auth.getToken()).subscribe(data => {
-      this.groups = data['groups'];
+    this.http.get('https://pr0jectzer0.ml/api/user/groups/admin_requests/?token=' + this.auth.getToken()).subscribe(data => {
+      this.joinRequests = data['requests'];
     });
   }
 

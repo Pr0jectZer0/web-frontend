@@ -54,10 +54,12 @@
                   </div>
                   <div class="col">
                     <div class="float-right">
-                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptGroup(g.id_gruppe)">
+                      <button type="button" class="btn btn-outline-danger float-right"
+                              (click)="acceptGroup(g.id_gruppe)">
                         Annehmen
                       </button>
-                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineGroup(g.id_gruppe)">
+                      <button type="button" class="btn btn-outline-danger float-right"
+                              (click)="declineGroup(g.id_gruppe)">
                         Ablehnen
                       </button>
                     </div>
@@ -76,7 +78,28 @@
         </div>
         <div class="collapse" id="collapseJoins">
           <div class="card-body">
-
+            <div *ngFor="let j of joinRequests">
+              <div class="col-12 card entry">
+                <div class="row">
+                  <div class="col">
+                    <div class="float-left">
+                      <h6>{{j.user.name}} - <a routerLinkActive="active" routerLink="group-profile/{{j.id}}">{{j.group.name}}</a>
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="float-right">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptJoin(j.id)">
+                        Annehmen
+                      </button>
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineJoin(j.id)">
+                        Ablehnen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-header">
