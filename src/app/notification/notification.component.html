@@ -89,10 +89,10 @@
                   </div>
                   <div class="col">
                     <div class="float-right">
-                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptJoin(j.id)">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="acceptJoin(j.user.id,j.group.id)">
                         Annehmen
                       </button>
-                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineJoin(j.id)">
+                      <button type="button" class="btn btn-outline-danger float-right" (click)="declineJoin(j.user.id, j.group.id)">
                         Ablehnen
                       </button>
                     </div>
